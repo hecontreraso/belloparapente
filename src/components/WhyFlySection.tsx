@@ -5,8 +5,8 @@ const WhyFlySection = () => {
   const { t } = useLanguage();
 
   const reasons = [
-    { icon: Shield, text: t("Certified experienced pilots", "Pilotos certificados y experimentados") },
-    { icon: Shield, text: t("Safety equipment included", "Equipo de seguridad incluido") },
+    { icon: Shield, text: t("Certified pilots with +15 years experience", "Pilotos certificados y con +15 años de experiencia") },
+    { icon: Shield, text: t("Latest generation equipment", "Equipos de última generación") },
     { icon: Eye, text: t("Incredible views of Medellín", "Vistas increíbles de Medellín") },
     { icon: Heart, text: t("Thousands of happy flyers", "Miles de pasajeros felices") },
     { icon: Video, text: t("Optional video of your flight", "Video opcional del vuelo") },
