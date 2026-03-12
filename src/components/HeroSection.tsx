@@ -13,8 +13,8 @@ const HeroSection = () => {
           src={heroImage}
           alt="Paragliding over Medellín"
           className="w-full h-full object-cover"
-          loading="eager"
-        />
+          loading="eager" />
+        
         <div className="absolute inset-0 hero-gradient" />
       </div>
 
@@ -25,7 +25,7 @@ const HeroSection = () => {
           <span className="text-gradient">{t("Medellín", "Medellín")}</span>
         </h1>
 
-        <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8">
+        <p className="text-lg md:text-xl max-w-xl mb-8 text-secondary-foreground">
           {t(
             "See the city from the sky. Flights from $220.000 COP.",
             "Mira Medellín desde el cielo. Vuelos desde $220.000 COP."
@@ -37,20 +37,20 @@ const HeroSection = () => {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary-gradient px-8 py-4 rounded-lg text-lg font-button font-semibold text-primary-foreground text-center hover:opacity-90 transition-opacity"
-          >
+            className="btn-primary-gradient px-8 py-4 rounded-lg text-lg font-body font-semibold text-primary-foreground text-center hover:opacity-90 transition-opacity">
+            
             {t("Book on WhatsApp", "Reservar por WhatsApp")}
           </a>
           <a
             href="#flights"
-            className="px-8 py-4 rounded-lg text-lg font-button font-semibold text-foreground border border-foreground/20 text-center hover:bg-foreground/10 transition-colors"
-          >
+            className="px-8 py-4 rounded-lg text-lg font-body font-semibold text-foreground border border-foreground/20 text-center hover:bg-foreground/10 transition-colors">
+            
             {t("See Flight Options", "Ver Opciones de Vuelo")}
           </a>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroSection;
