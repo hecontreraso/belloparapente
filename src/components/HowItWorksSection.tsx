@@ -7,13 +7,13 @@ const HowItWorksSection = () => {
   const steps = [
     {
       icon: MapPin,
-      title: t("Arrive at San Félix", "Reserva por whatsapp"),
-      desc: t("Arrive at the launch site in San Félix", "Basta con tu nombre y teléfono"),
+      title: t("Book via WhatsApp", "Reserva por WhatsApp"),
+      desc: t("Just give us your name and phone number", "Basta con darnos tu nombre y celular"),
     },
     {
       icon: Users,
-      title: t("Fly Tandem", "te "),
-      desc: t("Fly with a certified pilot", "Vuela con piloto certificado"),
+      title: t("We pick you up", "Te recogemos en tu casa"),
+      desc: t("(Optional) or you can get there on your own", "(Opcional) o si deseas puedes llegar por tu cuenta"),
     },
     {
       icon: Eye,
