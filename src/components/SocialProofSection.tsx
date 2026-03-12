@@ -58,6 +58,32 @@ const SocialProofSection = () => {
       time: t("3 months ago", "hace 3 meses"),
       link: "https://maps.app.goo.gl/PpBp4BfuXKX7Kg337",
     },
+    {
+      name: "Paola Rippe",
+      photo: null,
+      initial: "P",
+      color: "bg-rose-600",
+      rating: 5,
+      text: t(
+        "It was a wonderful experience, I felt free seeing so much greatness and very safe with the equipment and instructors. At first I was scared but then it was incredible... Indescribable",
+        "Fue una experiencia maravillosa, me sentí libre al ver tanta grandeza y muy segura con los equipos y con los instructores, en principio si me dio miedo pero luego fue increíble... Indescriptible"
+      ),
+      time: t("2 months ago", "hace 2 meses"),
+      link: "https://maps.app.goo.gl/QbQdCboykwzAFVFV9",
+    },
+    {
+      name: "Jhon Stiven Ibarra",
+      photo: null,
+      initial: "J",
+      color: "bg-teal-600",
+      rating: 5,
+      text: t(
+        "I looked at several options and without a doubt I found the best one because I had an excellent experience.",
+        "Busque varias opciones y sin duda di con la mejor porque tuve una excelente experiencia"
+      ),
+      time: t("a month ago", "hace un mes"),
+      link: "https://maps.app.goo.gl/ELumzHxZHzzUDeup8",
+    },
   ];
 
   const visibleCount = typeof window !== "undefined" && window.innerWidth >= 768 ? 2 : 1;
