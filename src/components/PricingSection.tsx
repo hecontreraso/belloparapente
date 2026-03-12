@@ -1,5 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Clock, Video } from "lucide-react";
+import { Clock, Video, Car } from "lucide-react";
 
 const WHATSAPP_BASE = "https://wa.me/573001234567?text=";
 
@@ -60,6 +60,17 @@ const PricingSection = () => {
             </div>
           </div>
           <span className="text-xl font-bold text-foreground">$50.000 COP</span>
+        </div>
+
+        <div className="card-gradient rounded-xl border border-border/50 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <Car className="w-6 h-6 text-primary" />
+            <div>
+              <p className="text-foreground font-semibold">{t("Round-trip Transportation", "Transporte ida y vuelta")}</p>
+              <p className="text-sm text-muted-foreground">{t("From anywhere in the metropolitan area", "Desde cualquier parte del área metropolitana")}</p>
+            </div>
+          </div>
+          <span className="text-xl font-bold text-foreground">$140.000 COP</span>
         </div>
       </div>
     </section>
