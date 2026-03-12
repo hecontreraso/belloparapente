@@ -146,7 +146,7 @@ const SocialProofSection = () => {
                 {reviews.map((review, i) => (
                   <a
                     key={i}
-                    href={GOOGLE_MAPS_URL}
+                    href={review.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-shrink-0 px-2"
@@ -155,9 +155,13 @@ const SocialProofSection = () => {
                     <div className="card-gradient p-6 rounded-xl border border-border/50 hover:border-primary/50 transition-colors h-full">
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center gap-3">
-                          <div className={`w-10 h-10 rounded-full ${review.color} flex items-center justify-center text-white font-bold text-sm`}>
-                            {review.initial}
-                          </div>
+                          {review.photo ? (
+                            <img src={review.photo} alt={review.name} className="w-10 h-10 rounded-full object-cover" />
+                          ) : (
+                            <div className={`w-10 h-10 rounded-full ${review.color} flex items-center justify-center text-white font-bold text-sm`}>
+                              {review.initial}
+                            </div>
+                          )}
                           <div>
                             <p className="font-semibold text-foreground text-sm">{review.name}</p>
                             <p className="text-xs text-muted-foreground">{review.time}</p>
