@@ -38,13 +38,6 @@ const FAQSection = () => {
         "Planea unas 2-3 horas en total incluyendo transporte, instrucciones, vuelo y aterrizaje. El tiempo de vuelo depende del paquete que elijas."
       ),
     },
-    {
-      q: t("Can I bring my phone or camera?", "¿Puedo llevar mi teléfono o cámara?"),
-      a: t(
-        "Yes, but we recommend securing it with a strap. We also offer GoPro video recording so you can fully enjoy the experience.",
-        "Sí, pero recomendamos asegurarlo con una correa. También ofrecemos grabación con GoPro para que disfrutes al máximo."
-      ),
-    },
   ];
 
   return (
