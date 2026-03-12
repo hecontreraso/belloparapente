@@ -84,6 +84,19 @@ const SocialProofSection = () => {
       time: t("a month ago", "hace un mes"),
       link: "https://maps.app.goo.gl/ELumzHxZHzzUDeup8",
     },
+    {
+      name: "Daniela Puerta Lopez",
+      photo: null,
+      initial: "D",
+      color: "bg-purple-600",
+      rating: 5,
+      text: t(
+        "Flying paragliding was an incredible and exciting experience. I felt very safe and enjoyed every moment of the flight. I would definitely do it again. I totally recommend Bello Parapente! 🪂",
+        "Volar en parapente fue una experiencia increíble y llena de emoción. Me sentí muy segura y disfruté cada momento del vuelo.\n\nSin duda lo volvería a hacer. ¡Recomiendo totalmente a Bello Parapente! 🪂"
+      ),
+      time: t("a month ago", "hace un mes"),
+      link: "https://maps.app.goo.gl/aDSHoJoV2rjCVyVZ9",
+    },
   ];
 
   const visibleCount = typeof window !== "undefined" && window.innerWidth >= 768 ? 2 : 1;
