@@ -1,5 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Clock, Video } from "lucide-react";
+import { Clock, Video, Car } from "lucide-react";
 
 const WHATSAPP_BASE = "https://wa.me/573001234567?text=";
 
