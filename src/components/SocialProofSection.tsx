@@ -103,13 +103,6 @@ const SocialProofSection = () => {
           <span className="text-gradient">{t("in Medellín", "en Medellín")}</span>
         </h2>
 
-        {/* Photo grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-12">
-          <img src={reaction1} alt="Happy passenger" className="w-full h-48 md:h-64 object-cover rounded-lg" />
-          <img src={paragliderSky} alt="Paraglider in sky" className="w-full h-48 md:h-64 object-cover rounded-lg" />
-          <img src={reaction2} alt="Happy couple after flight" className="w-full h-48 md:h-64 object-cover rounded-lg col-span-2 md:col-span-1" />
-        </div>
-
         {/* Google Reviews Section */}
         <div className="flex flex-col md:flex-row gap-6 items-start">
           {/* Left: Google rating summary */}
