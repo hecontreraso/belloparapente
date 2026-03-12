@@ -25,7 +25,7 @@ const StickyWhatsApp = () => {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full btn-primary-gradient py-4 text-center font-semibold text-primary-foreground text-sm"
+          className="block w-full btn-primary-gradient py-4 text-center font-body font-semibold text-primary-foreground text-sm"
         >
           {t("📲 Book your flight on WhatsApp", "📲 Reserva tu vuelo por WhatsApp")}
         </a>
