@@ -4,7 +4,7 @@ import { Clock, Video, Car } from "lucide-react";
 const WHATSAPP_BASE = "https://wa.me/573001234567?text=";
 
 const PricingSection = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   const flights = [
     { duration: "15 min", priceCOP: "$220.000", priceUSD: "~$60 USD", popular: false },
