@@ -30,7 +30,7 @@ const Header = () => {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex btn-primary-gradient px-5 py-2.5 rounded-lg text-sm font-body font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
+          className="hidden md:inline-flex btn-primary-gradient px-5 py-2.5 rounded-lg text-sm font-button font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
         >
           {t("Book Now", "Reservar")}
         </a>

@@ -61,7 +61,7 @@ const LeadCaptureSection = () => {
             />
             <button
               type="submit"
-              className="w-full btn-primary-gradient py-3 rounded-lg font-body font-semibold text-primary-foreground hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+              className="w-full btn-primary-gradient py-3 rounded-lg font-button font-semibold text-primary-foreground hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
             >
               <Send className="w-4 h-4" />
               {t("Send", "Enviar")}
