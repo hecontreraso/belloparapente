@@ -9,7 +9,7 @@ const PricingSection = () => {
   const flights = [
     { duration: "15 min", price: "$220.000 COP", popular: false },
     { duration: "20 min", price: "$290.000 COP", popular: true },
-    { duration: "30 min", price: "$400.000 COP", popular: false },
+    { duration: "30 min", price: "$440.000 COP", popular: false },
   ];
 
   return (
