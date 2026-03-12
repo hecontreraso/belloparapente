@@ -26,7 +26,7 @@ const FinalCTASection = () => {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex btn-primary-gradient px-10 py-4 rounded-lg text-lg font-body font-semibold text-primary-foreground hover:opacity-90 transition-opacity animate-pulse-glow"
+          className="inline-flex btn-primary-gradient px-10 py-4 rounded-lg text-lg font-button font-semibold text-primary-foreground hover:opacity-90 transition-opacity animate-pulse-glow"
         >
           {t("Message us on WhatsApp", "Escríbenos por WhatsApp")}
         </a>
