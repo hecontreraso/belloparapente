@@ -43,7 +43,7 @@ const HeroSection = () => {
           </a>
           <a
             href="#flights"
-            className="px-8 py-4 rounded-lg text-lg font-semibold text-foreground border border-foreground/20 text-center hover:bg-foreground/10 transition-colors"
+            className="px-8 py-4 rounded-lg text-lg font-body font-semibold text-foreground border border-foreground/20 text-center hover:bg-foreground/10 transition-colors"
           >
             {t("See Flight Options", "Ver Opciones de Vuelo")}
           </a>
