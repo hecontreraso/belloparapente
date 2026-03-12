@@ -99,7 +99,18 @@ const SocialProofSection = () => {
     },
   ];
 
-  const visibleCount = typeof window !== "undefined" && window.innerWidth >= 768 ? 2 : 1;
+  const [visibleCount, setVisibleCount] = useState(() =>
+    typeof window !== "undefined" && window.innerWidth >= 768 ? 2 : 1
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setVisibleCount(window.innerWidth >= 768 ? 2 : 1);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const maxIndex = reviews.length - visibleCount;
 
   const next = useCallback(() => {
@@ -109,6 +120,11 @@ const SocialProofSection = () => {
   const prev = useCallback(() => {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   }, [maxIndex]);
+
+  // Reset index when visibleCount changes
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [visibleCount]);
 
   // Auto-advance every 5s
   useEffect(() => {
