@@ -82,6 +82,7 @@ const PricingSection = () => {
             {lang === "en" && <p className="text-sm text-muted-foreground">~$38 USD</p>}
           </div>
         </div>
+        </div>
       </div>
     </section>
   );
