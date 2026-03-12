@@ -4,12 +4,12 @@ import { Clock, Video, Car } from "lucide-react";
 const WHATSAPP_BASE = "https://wa.me/573001234567?text=";
 
 const PricingSection = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   const flights = [
-    { duration: "15 min", price: "$220.000 COP", popular: false },
-    { duration: "20 min", price: "$290.000 COP", popular: true },
-    { duration: "30 min", price: "$440.000 COP", popular: false },
+    { duration: "15 min", priceCOP: "$220.000", priceUSD: "~$60 USD", popular: false },
+    { duration: "20 min", priceCOP: "$290.000", priceUSD: "~$80 USD", popular: true },
+    { duration: "30 min", priceCOP: "$440.000", priceUSD: "~$120 USD", popular: false },
   ];
 
   return (
@@ -38,7 +38,10 @@ const PricingSection = () => {
               <Clock className="w-8 h-8 text-primary mb-4 mt-2" />
               <h3 className="font-display text-3xl text-foreground mb-1">{flight.duration}</h3>
               <p className="text-sm text-muted-foreground mb-4">{t("Tandem Flight", "Vuelo Tándem")}</p>
-              <p className="text-2xl font-bold text-foreground mb-6">{flight.price}</p>
+              <div className="mb-6">
+                <p className="text-2xl font-bold text-foreground">{flight.priceCOP} {t("COP", "")}</p>
+                {lang === "en" && <p className="text-sm text-muted-foreground">{flight.priceUSD}</p>}
+              </div>
               <a
                 href={`${WHATSAPP_BASE}${encodeURIComponent(t(`Hi! I want to book a ${flight.duration} paragliding flight`, `¡Hola! Quiero reservar un vuelo de ${flight.duration}`))}`}
                 target="_blank"
@@ -59,7 +62,10 @@ const PricingSection = () => {
               <p className="text-sm text-muted-foreground">{t("Optional add-on", "Complemento opcional")}</p>
             </div>
           </div>
-          <span className="text-xl font-bold text-foreground">$50.000 COP</span>
+          <div className="text-right">
+            <span className="text-xl font-bold text-foreground">$50.000 {t("COP", "")}</span>
+            {lang === "en" && <p className="text-sm text-muted-foreground">~$14 USD</p>}
+          </div>
         </div>
 
         <div className="card-gradient rounded-xl border border-border/50 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -70,7 +76,10 @@ const PricingSection = () => {
               <p className="text-sm text-muted-foreground">{t("From anywhere in the metropolitan area", "Desde cualquier parte del área metropolitana")}</p>
             </div>
           </div>
-          <span className="text-xl font-bold text-foreground">$140.000 COP</span>
+          <div className="text-right">
+            <span className="text-xl font-bold text-foreground">$140.000 {t("COP", "")}</span>
+            {lang === "en" && <p className="text-sm text-muted-foreground">~$38 USD</p>}
+          </div>
         </div>
       </div>
     </section>
