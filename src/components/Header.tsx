@@ -1,7 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import logo from "@/assets/logo.jpg";
 
-const WHATSAPP_URL = "https://wa.me/573001234567?text=Hello%20I%20want%20to%20book%20a%20paragliding%20flight";
+const WHATSAPP_URL = "https://wa.me/573203293577?text=Hello%20I%20want%20to%20book%20a%20paragliding%20flight";
 
 const Header = () => {
   const { lang, setLang, t } = useLanguage();
