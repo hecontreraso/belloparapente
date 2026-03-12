@@ -76,7 +76,10 @@ const PricingSection = () => {
               <p className="text-sm text-muted-foreground">{t("From anywhere in the metropolitan area", "Desde cualquier parte del área metropolitana")}</p>
             </div>
           </div>
-          <span className="text-xl font-bold text-foreground">$140.000 COP</span>
+          <div className="text-right">
+            <span className="text-xl font-bold text-foreground">$140.000 {t("COP", "")}</span>
+            {lang === "en" && <p className="text-sm text-muted-foreground">~$38 USD</p>}
+          </div>
         </div>
       </div>
     </section>
