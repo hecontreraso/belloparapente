@@ -54,6 +54,7 @@ const PricingSection = () => {
           ))}
         </div>
 
+        <div className="space-y-4 mt-8">
         <div className="card-gradient rounded-xl border border-border/50 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <Video className="w-6 h-6 text-primary" />
