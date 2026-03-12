@@ -62,7 +62,10 @@ const PricingSection = () => {
               <p className="text-sm text-muted-foreground">{t("Optional add-on", "Complemento opcional")}</p>
             </div>
           </div>
-          <span className="text-xl font-bold text-foreground">$50.000 COP</span>
+          <div className="text-right">
+            <span className="text-xl font-bold text-foreground">$50.000 {t("COP", "")}</span>
+            {lang === "en" && <p className="text-sm text-muted-foreground">~$14 USD</p>}
+          </div>
         </div>
 
         <div className="card-gradient rounded-xl border border-border/50 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
