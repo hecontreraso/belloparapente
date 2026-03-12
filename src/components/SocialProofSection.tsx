@@ -1,29 +1,90 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Star } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
 import reaction1 from "@/assets/passenger-reaction-1.jpg";
 import reaction2 from "@/assets/passenger-reaction-2.jpg";
 import paragliderSky from "@/assets/paraglider-sky.jpg";
 
+const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/kpmbRz4sqPV1cZhV7";
+
 const SocialProofSection = () => {
   const { t } = useLanguage();
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const testimonials = [
+  const reviews = [
     {
-      text: t("Absolutely incredible experience!", "¡Una experiencia increíble!"),
-      name: t("Sarah K.", "Sarah K."),
-      origin: t("New York, USA", "Nueva York, EE.UU."),
+      name: "Lucio Hernandez",
+      initial: "L",
+      color: "bg-purple-600",
+      rating: 5,
+      text: t(
+        "Excellent experience, highly recommended, we will do it again as many times as possible. Maria helped us. Thank you.",
+        "Excelente experiencia, muy recomendado, lo volveremos a hacer las veces que sea posible. María nos ayudó. Gracias."
+      ),
+      time: t("a year ago", "hace un año"),
     },
     {
-      text: t("Best thing we did in Medellín.", "Lo mejor que hicimos en Medellín."),
-      name: t("Carlos M.", "Carlos M."),
-      origin: t("Madrid, Spain", "Madrid, España"),
+      name: "Regi Roblox",
+      initial: "R",
+      color: "bg-teal-600",
+      rating: 5,
+      text: t(
+        "Spectacular experience, my pilot Jhon and María assisted me. Everything was perfect from start to finish.",
+        "Experiencia espectacular, mi piloto Jhon y María me asistieron. Todo fue perfecto de principio a fin."
+      ),
+      time: t("a year ago", "hace un año"),
     },
     {
-      text: t("Amazing pilots and unforgettable views.", "Pilotos profesionales y vistas increíbles."),
-      name: t("Emma L.", "Emma L."),
-      origin: t("London, UK", "Londres, UK"),
+      name: "Camila Torres",
+      initial: "C",
+      color: "bg-rose-600",
+      rating: 5,
+      text: t(
+        "An unforgettable experience! The views of Medellín from above are incredible. The pilots are very professional and make you feel safe at all times.",
+        "¡Una experiencia inolvidable! Las vistas de Medellín desde arriba son increíbles. Los pilotos son muy profesionales y te hacen sentir seguro en todo momento."
+      ),
+      time: t("6 months ago", "hace 6 meses"),
+    },
+    {
+      name: "David Martínez",
+      initial: "D",
+      color: "bg-blue-600",
+      rating: 5,
+      text: t(
+        "Best activity in Medellín without a doubt. The adrenaline and the landscape are unbeatable. 100% recommended.",
+        "La mejor actividad en Medellín sin duda. La adrenalina y el paisaje son inigualables. 100% recomendado."
+      ),
+      time: t("3 months ago", "hace 3 meses"),
+    },
+    {
+      name: "Ana García",
+      initial: "A",
+      color: "bg-amber-600",
+      rating: 5,
+      text: t(
+        "I was very nervous but the pilot was super patient and professional. It was the best decision of my trip!",
+        "Estaba muy nerviosa pero el piloto fue súper paciente y profesional. ¡Fue la mejor decisión de mi viaje!"
+      ),
+      time: t("2 months ago", "hace 2 meses"),
     },
   ];
+
+  const visibleCount = typeof window !== "undefined" && window.innerWidth >= 768 ? 2 : 1;
+  const maxIndex = reviews.length - visibleCount;
+
+  const next = useCallback(() => {
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  }, [maxIndex]);
+
+  const prev = useCallback(() => {
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  }, [maxIndex]);
+
+  // Auto-advance every 5s
+  useEffect(() => {
+    const timer = setInterval(next, 5000);
+    return () => clearInterval(timer);
+  }, [next]);
 
   return (
     <section className="section-padding">
@@ -42,15 +103,6 @@ const SocialProofSection = () => {
           <span className="text-gradient">{t("in Medellín", "en Medellín")}</span>
         </h2>
 
-        <div className="flex items-center justify-center gap-1 mb-12">
-          {[...Array(5)].map((_, i) => (
-            <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-          ))}
-          <span className="ml-2 text-muted-foreground text-sm">
-            {t("4.9 / 5 from hundreds of flyers", "4.9 / 5 de cientos de pasajeros")}
-          </span>
-        </div>
-
         {/* Photo grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-12">
           <img src={reaction1} alt="Happy passenger" className="w-full h-48 md:h-64 object-cover rounded-lg" />
@@ -58,19 +110,124 @@ const SocialProofSection = () => {
           <img src={reaction2} alt="Happy couple after flight" className="w-full h-48 md:h-64 object-cover rounded-lg col-span-2 md:col-span-1" />
         </div>
 
-        {/* Testimonials */}
-        <div className="grid md:grid-cols-3 gap-4 md:gap-6">
-          {testimonials.map((review, i) => (
-            <div key={i} className="card-gradient p-6 rounded-xl border border-border/50">
-              <div className="flex gap-1 mb-3">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="w-4 h-4 fill-primary text-primary" />
+        {/* Google Reviews Section */}
+        <div className="flex flex-col md:flex-row gap-6 items-start">
+          {/* Left: Google rating summary */}
+          <a
+            href={GOOGLE_MAPS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-shrink-0 card-gradient p-6 rounded-xl border border-border/50 flex flex-col items-center gap-3 hover:border-primary/50 transition-colors w-full md:w-auto"
+          >
+            <div className="w-16 h-16 rounded-full overflow-hidden bg-muted flex items-center justify-center">
+              <img
+                src="https://lh3.googleusercontent.com/gps-cs-s/AHVAwep6OELXxBnZrteAXhaRjM9sCisKqUwe2a0vVtMn0d2wXOm1GJICVcQNPMYKVVLxMs1HbK0YG5Z_kBYXf_Im3rY9PXPARfdve2taNsDD7FH-Phy5pJ9Yswu0_hqxttEAWGl9xC1NbUdYB71S=w92-h92-p-k-no"
+                alt="Bello Parapente"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <span className="font-bold text-foreground text-lg">Bello Parapente</span>
+            <div className="flex items-center gap-1">
+              <span className="text-2xl font-bold text-primary">5.0</span>
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                 ))}
               </div>
-              <p className="text-foreground mb-4 italic">"{review.text}"</p>
-              <p className="text-sm text-muted-foreground">{review.name} — {review.origin}</p>
             </div>
-          ))}
+            <span className="text-sm text-muted-foreground">
+              {t("Based on Google reviews", "Basado en reseñas de Google")}
+            </span>
+            <span className="text-xs text-muted-foreground/70">
+              powered by <span className="font-semibold text-foreground">Google</span>
+            </span>
+            <div className="mt-2 bg-[#4285F4] text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 hover:bg-[#3367D6] transition-colors">
+              {t("Rate us on", "Valóranos en")}
+              <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+              </svg>
+            </div>
+          </a>
+
+          {/* Right: Review carousel */}
+          <div className="flex-1 min-w-0 relative">
+            <div className="overflow-hidden">
+              <div
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentIndex * (100 / visibleCount)}%)` }}
+              >
+                {reviews.map((review, i) => (
+                  <a
+                    key={i}
+                    href={GOOGLE_MAPS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-shrink-0 px-2"
+                    style={{ width: `${100 / visibleCount}%` }}
+                  >
+                    <div className="card-gradient p-6 rounded-xl border border-border/50 hover:border-primary/50 transition-colors h-full">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-3">
+                          <div className={`w-10 h-10 rounded-full ${review.color} flex items-center justify-center text-white font-bold text-sm`}>
+                            {review.initial}
+                          </div>
+                          <div>
+                            <p className="font-semibold text-foreground text-sm">{review.name}</p>
+                            <p className="text-xs text-muted-foreground">{review.time}</p>
+                          </div>
+                        </div>
+                        <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0">
+                          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
+                          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                        </svg>
+                      </div>
+                      <div className="flex gap-0.5 mb-3">
+                        {[...Array(review.rating)].map((_, j) => (
+                          <Star key={j} className="w-4 h-4 fill-primary text-primary" />
+                        ))}
+                      </div>
+                      <p className="text-foreground text-sm leading-relaxed">{review.text}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Navigation arrows */}
+            <button
+              onClick={prev}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 w-9 h-9 rounded-full bg-background/90 border border-border shadow-lg flex items-center justify-center hover:bg-muted transition-colors"
+              aria-label="Previous review"
+            >
+              <ChevronLeft className="w-5 h-5 text-foreground" />
+            </button>
+            <button
+              onClick={next}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 w-9 h-9 rounded-full bg-background/90 border border-border shadow-lg flex items-center justify-center hover:bg-muted transition-colors"
+              aria-label="Next review"
+            >
+              <ChevronRight className="w-5 h-5 text-foreground" />
+            </button>
+
+            {/* Dots indicator */}
+            <div className="flex justify-center gap-2 mt-4">
+              {reviews.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentIndex(i > maxIndex ? maxIndex : i)}
+                  className={`w-2.5 h-2.5 rounded-full transition-colors ${
+                    i === currentIndex ? "bg-primary" : "bg-muted-foreground/30"
+                  }`}
+                  aria-label={`Go to review ${i + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
