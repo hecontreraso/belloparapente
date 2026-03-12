@@ -38,7 +38,10 @@ const PricingSection = () => {
               <Clock className="w-8 h-8 text-primary mb-4 mt-2" />
               <h3 className="font-display text-3xl text-foreground mb-1">{flight.duration}</h3>
               <p className="text-sm text-muted-foreground mb-4">{t("Tandem Flight", "Vuelo Tándem")}</p>
-              <p className="text-2xl font-bold text-foreground mb-6">{flight.price}</p>
+              <div className="mb-6">
+                <p className="text-2xl font-bold text-foreground">{flight.priceCOP} {t("COP", "")}</p>
+                {lang === "en" && <p className="text-sm text-muted-foreground">{flight.priceUSD}</p>}
+              </div>
               <a
                 href={`${WHATSAPP_BASE}${encodeURIComponent(t(`Hi! I want to book a ${flight.duration} paragliding flight`, `¡Hola! Quiero reservar un vuelo de ${flight.duration}`))}`}
                 target="_blank"
