@@ -37,7 +37,7 @@ const HeroSection = () => {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary-gradient px-8 py-4 rounded-lg text-lg font-body font-semibold text-primary-foreground text-center hover:opacity-90 transition-opacity"
+            className="btn-primary-gradient px-8 py-4 rounded-lg text-lg font-button font-semibold text-primary-foreground text-center hover:opacity-90 transition-opacity"
           >
             {t("Book on WhatsApp", "Reservar por WhatsApp")}
           </a>
