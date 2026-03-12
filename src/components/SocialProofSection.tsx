@@ -192,7 +192,7 @@ const SocialProofSection = () => {
           </a>
 
           {/* Right: Review carousel */}
-          <div className="flex-1 min-w-0 relative">
+          <div className="flex-1 min-w-0 relative w-full overflow-hidden">
             <div className="overflow-hidden">
               <div
                 className="flex transition-transform duration-500 ease-in-out"
