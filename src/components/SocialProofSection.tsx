@@ -1,9 +1,9 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
-import reaction1 from "@/assets/passenger-reaction-1.jpg";
-import reaction2 from "@/assets/passenger-reaction-2.jpg";
-import paragliderSky from "@/assets/paraglider-sky.jpg";
+import reviewKlevin from "@/assets/review-klevin.png";
+import reviewSantiago from "@/assets/review-santiago.png";
+import reviewElkin from "@/assets/review-elkin.png";
 
 const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/kpmbRz4sqPV1cZhV7";
 
@@ -13,59 +13,50 @@ const SocialProofSection = () => {
 
   const reviews = [
     {
-      name: "Lucio Hernandez",
-      initial: "L",
-      color: "bg-purple-600",
+      name: "Klevin Cifuentes",
+      photo: reviewKlevin,
       rating: 5,
       text: t(
-        "Excellent experience, highly recommended, we will do it again as many times as possible. Maria helped us. Thank you.",
-        "Excelente experiencia, muy recomendado, lo volveremos a hacer las veces que sea posible. María nos ayudó. Gracias."
+        "The best experience you can have in northern Bello paragliding. The mountains and the view of the city are incredible and beautiful. And pilot Duvan, an excellent person and very professional in his work. I recommend it 💯 out of 💯👍🏼",
+        "La mejor experiencia que se puede vivir al norte de bello en parapente sus montañas y su vista hacia la ciudad son increíbles y hermosas y del piloto Duvan ni decir exactamente persona y muy profesional en su trabajo lo recomiendo 💯 de 💯👍🏼"
       ),
       time: t("a year ago", "hace un año"),
+      link: "https://maps.app.goo.gl/Xp2qsrhEFCFhzJAD9",
     },
     {
-      name: "Regi Roblox",
-      initial: "R",
-      color: "bg-teal-600",
+      name: "Santiago Jimenez",
+      photo: reviewSantiago,
       rating: 5,
       text: t(
-        "Spectacular experience, my pilot Jhon and María assisted me. Everything was perfect from start to finish.",
-        "Experiencia espectacular, mi piloto Jhon y María me asistieron. Todo fue perfecto de principio a fin."
+        "The views of the city are brutal and the flight is very calm. The team was very professional and the whole process was smooth. Highly recommended if you're looking to do something different.",
+        "Las vistas de la ciudad son brutales y el vuelo es muy tranquilo. El equipo fue muy profesional y todo el proceso fue fluido. Muy recomendado si buscas hacer algo diferente."
       ),
       time: t("a year ago", "hace un año"),
+      link: "https://maps.app.goo.gl/CQBAwqDqFhUuphTu5",
     },
     {
-      name: "Camila Torres",
-      initial: "C",
-      color: "bg-rose-600",
+      name: "Elkin Lopez",
+      photo: reviewElkin,
       rating: 5,
       text: t(
-        "An unforgettable experience! The views of Medellín from above are incredible. The pilots are very professional and make you feel safe at all times.",
-        "¡Una experiencia inolvidable! Las vistas de Medellín desde arriba son increíbles. Los pilotos son muy profesionales y te hacen sentir seguro en todo momento."
+        "If you want a great experience with great professionals from this region, this is the place.",
+        "Si quiere una muy buena experiencia junto a grandes profesionales de esta región, es aquí."
       ),
       time: t("6 months ago", "hace 6 meses"),
+      link: "https://maps.app.goo.gl/cDXpfkCvpPRvwtQY6",
     },
     {
-      name: "David Martínez",
-      initial: "D",
+      name: "Anderson Stiven Buitrago Martinez",
+      photo: null,
+      initial: "A",
       color: "bg-blue-600",
       rating: 5,
       text: t(
-        "Best activity in Medellín without a doubt. The adrenaline and the landscape are unbeatable. 100% recommended.",
-        "La mejor actividad en Medellín sin duda. La adrenalina y el paisaje son inigualables. 100% recomendado."
+        "Flying is spectacular, the people are super professional and make you feel safe. 100% recommended.",
+        "El volar es espectacular, la gente es súper profesional y te hacen sentir Seguros. 100% recomendado."
       ),
       time: t("3 months ago", "hace 3 meses"),
-    },
-    {
-      name: "Ana García",
-      initial: "A",
-      color: "bg-amber-600",
-      rating: 5,
-      text: t(
-        "I was very nervous but the pilot was super patient and professional. It was the best decision of my trip!",
-        "Estaba muy nerviosa pero el piloto fue súper paciente y profesional. ¡Fue la mejor decisión de mi viaje!"
-      ),
-      time: t("2 months ago", "hace 2 meses"),
+      link: "https://maps.app.goo.gl/PpBp4BfuXKX7Kg337",
     },
   ];
 
