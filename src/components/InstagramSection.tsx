@@ -73,7 +73,7 @@ const InstagramSection = () => {
         </a>
 
         <p className="text-xs text-muted-foreground mt-4">
-          {t("Join 500+ followers", "Únete a 500+ seguidores")}
+          {t("Join 1200+ followers", "Únete a 1200+ seguidores")}
         </p>
       </div>
     </section>
