@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 import { createHtmlPlugin } from 'vite-plugin-html';
 
 export default defineConfig(({ mode }) => ({
-  base: "/belloparapente/",
+  base: "/",
   server: {
     host: "::",
     port: 8080,
