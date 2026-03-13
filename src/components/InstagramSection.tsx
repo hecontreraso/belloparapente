@@ -1,22 +1,16 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Instagram, ExternalLink, Play } from "lucide-react";
-import heroImage from "@/assets/hero-paragliding.jpg";
-import takeoff from "@/assets/takeoff.jpg";
-import aerialView from "@/assets/medellin-aerial.jpg";
-import reaction1 from "@/assets/passenger-reaction-1.jpg";
-import reaction2 from "@/assets/passenger-reaction-2.jpg";
-import paragliderSky from "@/assets/paraglider-sky.jpg";
-
-const INSTAGRAM_URL = "https://instagram.com/belloparapente";
+import insta1 from "@/assets/insta-1.jpg";
+import insta2 from "@/assets/insta-2.jpg";
+import insta3 from "@/assets/insta-3.jpg";
 
 const thumbnails = [
-  { src: heroImage, alt: "Vuelo en parapente", hasPlay: true },
-  { src: reaction1, alt: "Reacción de pasajero", hasPlay: false },
-  { src: aerialView, alt: "Vista aérea de Medellín", hasPlay: true },
-  { src: takeoff, alt: "Despegue", hasPlay: false },
-  { src: paragliderSky, alt: "Parapente en el cielo", hasPlay: true },
-  { src: reaction2, alt: "Reacción de pasajero", hasPlay: false },
+  { src: insta1, alt: "Vista desde parapente", url: "https://www.instagram.com/p/C0kwN3lOrtv/", hasPlay: true },
+  { src: insta2, alt: "Piloto y pasajera en vuelo", url: "https://www.instagram.com/p/CyOmaTTx9hF/", hasPlay: false },
+  { src: insta3, alt: "Pasajera disfrutando el vuelo", url: "https://www.instagram.com/p/C4HJEmNJ9Ym/", hasPlay: true },
 ];
+
+const INSTAGRAM_URL = "https://instagram.com/belloparapente";
 
 const InstagramSection = () => {
   const { t } = useLanguage();
@@ -42,14 +36,14 @@ const InstagramSection = () => {
         </p>
 
         {/* Thumbnail Grid */}
-        <div className="grid grid-cols-3 gap-2 md:gap-3 mb-8">
+        <div className="grid grid-cols-3 gap-2 md:gap-4 mb-8">
           {thumbnails.map((thumb, i) => (
             <a
               key={i}
-              href={INSTAGRAM_URL}
+              href={thumb.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative aspect-square overflow-hidden rounded-lg group"
+              className="relative aspect-[9/16] overflow-hidden rounded-xl group"
             >
               <img
                 src={thumb.src}
@@ -59,9 +53,9 @@ const InstagramSection = () => {
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
                 {thumb.hasPlay && (
-                  <Play className="w-8 h-8 text-white opacity-70 group-hover:opacity-100 transition-opacity drop-shadow-lg" fill="white" />
+                  <Play className="w-10 h-10 text-white opacity-70 group-hover:opacity-100 transition-opacity drop-shadow-lg" fill="white" />
                 )}
-                <Instagram className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-2 right-2 drop-shadow-lg" />
+                <Instagram className="w-5 h-5 text-white opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-2 right-2 drop-shadow-lg" />
               </div>
             </a>
           ))}
