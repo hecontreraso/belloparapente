@@ -24,7 +24,7 @@ const Index = () => {
       <LocationSection />
       <GallerySection />
       <FAQSection />
-      <LeadCaptureSection />
+      
       <FinalCTASection />
       <StickyWhatsApp />
       <Footer />
