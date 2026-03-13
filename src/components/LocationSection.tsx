@@ -16,7 +16,7 @@ const LocationSection = () => {
           <p>
             {t(
               "San Félix launch site near Medellín. Only 25 minutes from the city.",
-              "Despegue en San Félix cerca de Medellín. A solo 25 minutos de la ciudad."
+              "Despegue en San Félix cerca de Medellín. A solo 40 minutos de la ciudad.",
             )}
           </p>
         </div>
