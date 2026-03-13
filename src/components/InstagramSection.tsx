@@ -23,7 +23,7 @@ const InstagramSection = () => {
           )}
         </p>
         <p className="text-primary font-semibold text-sm mb-8">
-          {t("New flight videos every week! 🎥", "Nuevos videos de vuelos cada semana 🎥")}
+          {t("New flight videos every week!", "Nuevos videos de vuelos cada semana")}{" "}<span>🎥</span>
         </p>
 
         <a
