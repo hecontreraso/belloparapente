@@ -1,8 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Clock, Video, Car } from "lucide-react";
 
-const WHATSAPP_BASE = "https://wa.me/573203293577?text=";
-
 const PricingSection = () => {
   const { t, lang } = useLanguage();
 
@@ -43,7 +41,7 @@ const PricingSection = () => {
                 {lang === "en" && <p className="text-sm text-muted-foreground">{flight.priceUSD}</p>}
               </div>
               <a
-                href={`${WHATSAPP_BASE}${encodeURIComponent(t(`Hi! I want to book a ${flight.duration} paragliding flight`, `¡Hola! Quiero reservar un vuelo de ${flight.duration}`))}`}
+                href={`https://wa.me/573203293577?text=${encodeURIComponent(t(`Hi! I want to book a ${flight.duration} paragliding flight`, `¡Hola! Quiero reservar un vuelo de ${flight.duration}`))}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full btn-primary-gradient py-3 rounded-lg font-button font-semibold text-primary-foreground hover:opacity-90 transition-opacity text-center"

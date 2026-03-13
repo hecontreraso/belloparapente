@@ -2,11 +2,19 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Instagram } from "lucide-react";
 import logo from "@/assets/logo.jpg";
 
-const WHATSAPP_URL = "https://wa.me/573203293577?text=Hello%20I%20want%20to%20book%20a%20paragliding%20flight";
 const INSTAGRAM_URL = "https://instagram.com/belloparapente";
 
 const Header = () => {
   const { lang, setLang, t } = useLanguage();
+
+  // WhatsApp URL dinámico según idioma
+  const whatsappMessage = encodeURIComponent(
+    t(
+      "Hello! I want to book a paragliding flight over Medellín. Could you give me more information?",
+      "¡Hola! Quiero reservar un vuelo en parapente sobre Medellín. ¿Podrían darme más información?"
+    )
+  );
+  const WHATSAPP_URL = `https://wa.me/573203293577?text=${whatsappMessage}`;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-8 py-3 bg-background/80 backdrop-blur-md border-b border-border/50">
