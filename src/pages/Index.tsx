@@ -5,7 +5,6 @@ import HowItWorksSection from "@/components/HowItWorksSection";
 import PricingSection from "@/components/PricingSection";
 import WhyFlySection from "@/components/WhyFlySection";
 import LocationSection from "@/components/LocationSection";
-import GallerySection from "@/components/GallerySection";
 import FAQSection from "@/components/FAQSection";
 import InstagramSection from "@/components/InstagramSection";
 import FinalCTASection from "@/components/FinalCTASection";
@@ -22,7 +21,6 @@ const Index = () => {
       <PricingSection />
       <WhyFlySection />
       <LocationSection />
-      <GallerySection />
       <InstagramSection />
       <FAQSection />
       <FinalCTASection />
