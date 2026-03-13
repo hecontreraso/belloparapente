@@ -19,10 +19,12 @@ const Header = () => {
           href={INSTAGRAM_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-muted-foreground hover:text-foreground transition-colors"
+          className="hover:opacity-80 transition-opacity"
           aria-label="Instagram"
         >
-          <Instagram className="w-5 h-5" />
+          <div className="w-6 h-6 rounded-lg flex items-center justify-center bg-gradient-to-br from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]">
+            <Instagram className="w-4 h-4 text-white" />
+          </div>
         </a>
 
         <button
