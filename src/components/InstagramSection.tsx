@@ -18,12 +18,12 @@ const InstagramSection = () => {
         </h2>
         <p className="text-muted-foreground mb-2 text-sm md:text-base max-w-xl mx-auto">
           {t(
-            "Follow us on Instagram to see daily flight videos, breathtaking views of Medellín from the sky, and real reactions from our passengers.",
-            "Síguenos en Instagram para ver videos diarios de vuelos, vistas impresionantes de Medellín desde el cielo y reacciones reales de nuestros pasajeros."
+            "Follow us on Instagram to see flight videos, breathtaking views of Medellín from the sky, and reactions from our passengers.",
+            "Síguenos en Instagram para ver videos de vuelos, vistas impresionantes de Medellín desde el cielo y reacciones de nuestros pasajeros."
           )}
         </p>
         <p className="text-primary font-semibold text-sm mb-8">
-          🎥 {t("New flight videos every week!", "¡Nuevos videos de vuelos cada semana!")}
+          {t("New flight videos every week! 🎥", "Nuevos videos de vuelos cada semana 🎥")}
         </p>
 
         <a
