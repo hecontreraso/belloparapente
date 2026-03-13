@@ -12,7 +12,7 @@ const HeroSection = () => {
         <img
           src={heroImage}
           alt="Paragliding over Medellín"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-right md:object-center"
           loading="eager"
           fetchPriority="high"
           decoding="async"
