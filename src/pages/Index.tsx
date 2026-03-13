@@ -7,7 +7,7 @@ import WhyFlySection from "@/components/WhyFlySection";
 import LocationSection from "@/components/LocationSection";
 import GallerySection from "@/components/GallerySection";
 import FAQSection from "@/components/FAQSection";
-
+import InstagramSection from "@/components/InstagramSection";
 import FinalCTASection from "@/components/FinalCTASection";
 import StickyWhatsApp from "@/components/StickyWhatsApp";
 import Footer from "@/components/Footer";
@@ -23,8 +23,8 @@ const Index = () => {
       <WhyFlySection />
       <LocationSection />
       <GallerySection />
+      <InstagramSection />
       <FAQSection />
-      
       <FinalCTASection />
       <StickyWhatsApp />
       <Footer />
