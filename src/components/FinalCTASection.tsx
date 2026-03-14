@@ -16,7 +16,7 @@ const FinalCTASection = () => {
   return (
     <section className="relative py-24 md:py-32">
       <div className="absolute inset-0">
-        <img src={heroImage} alt="Fly over Medellín" className="w-full h-full object-cover" loading="lazy" />
+        <img src={ctaBgImage} alt="Paragliding tandem flight over green mountains near Medellín" className="w-full h-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
       </div>
 
