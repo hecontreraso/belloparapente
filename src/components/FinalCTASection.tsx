@@ -1,5 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import heroImage from "@/assets/hero-paragliding.jpg";
+import ctaBgImage from "@/assets/final-cta-bg.png";
 
 const FinalCTASection = () => {
   const { t } = useLanguage();
