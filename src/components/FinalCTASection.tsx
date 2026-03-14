@@ -1,5 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import ctaBgImage from "@/assets/final-cta-bg.png";
+import ctaBgImage from "@/assets/final-cta-bg.jpg";
 
 const FinalCTASection = () => {
   const { t } = useLanguage();
