@@ -16,6 +16,13 @@ const Header = () => {
   );
   const WHATSAPP_URL = `https://wa.me/573203293577?text=${whatsappMessage}`;
 
+  const handleWhatsAppClick = () => {
+    // Track Facebook Pixel Contact event
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Contact');
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-8 py-3 bg-background/80 backdrop-blur-md border-b border-border/50">
       <a href="#" className="flex items-center">

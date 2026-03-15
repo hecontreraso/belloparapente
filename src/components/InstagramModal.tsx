@@ -31,6 +31,10 @@ const InstagramModal = ({ isVisible, onClose }: InstagramModalProps) => {
   };
 
   const handleInstagramClick = () => {
+    // Track Facebook Pixel Lead event
+    if (typeof window !== 'undefined' && window.fbq) {
+      window.fbq('track', 'Lead');
+    }
     window.open('https://instagram.com/belloparapente', '_blank', 'noopener noreferrer');
     handleClose();
   };

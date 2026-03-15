@@ -13,6 +13,13 @@ const FinalCTASection = () => {
   );
   const WHATSAPP_URL = `https://wa.me/573203293577?text=${whatsappMessage}`;
 
+  const handleWhatsAppClick = () => {
+    // Track Facebook Pixel Contact event
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Contact');
+    }
+  };
+
   return (
     <section className="relative py-24 md:py-32">
       <div className="absolute inset-0">
@@ -32,8 +39,7 @@ const FinalCTASection = () => {
         <a
           href={WHATSAPP_URL}
           target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex btn-primary-gradient px-10 py-4 rounded-lg text-lg font-button font-semibold text-primary-foreground hover:opacity-90 transition-opacity animate-pulse-glow"
+          rel="noopener noreferrer"          onClick={handleWhatsAppClick}          className="inline-flex btn-primary-gradient px-10 py-4 rounded-lg text-lg font-button font-semibold text-primary-foreground hover:opacity-90 transition-opacity animate-pulse-glow"
         >
           {t("Message us on WhatsApp", "Escríbenos por WhatsApp")}
         </a>

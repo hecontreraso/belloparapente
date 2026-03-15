@@ -13,6 +13,13 @@ const HeroSection = () => {
   );
   const WHATSAPP_URL = `https://wa.me/573203293577?text=${whatsappMessage}`;
 
+  const handleWhatsAppClick = () => {
+    // Track Facebook Pixel Contact event
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Contact');
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-end pb-20 md:pb-32">
       <div className="absolute inset-0">
@@ -49,6 +56,7 @@ const HeroSection = () => {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={handleWhatsAppClick}
             className="btn-primary-gradient px-8 py-4 rounded-lg text-lg font-body font-semibold text-primary-foreground text-center hover:opacity-90 transition-opacity">
             
             {t("Book on WhatsApp", "Reservar por WhatsApp")}

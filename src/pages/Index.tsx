@@ -10,79 +10,79 @@ import FAQSection from "@/components/FAQSection";
 import InstagramSection from "@/components/InstagramSection";
 import FinalCTASection from "@/components/FinalCTASection";
 import StickyWhatsApp from "@/components/StickyWhatsApp";
-import InstagramModal from "@/components/InstagramModal";
+// import InstagramModal from "@/components/InstagramModal";
 import Footer from "@/components/Footer";
 import { useSEO, useStructuredData } from "@/hooks/use-seo";
 
 const Index = () => {
   const [showWhatsAppBanner, setShowWhatsAppBanner] = useState(false);
-  const [showInstagramModal, setShowInstagramModal] = useState(false);
+  // const [showInstagramModal, setShowInstagramModal] = useState(false);
   const socialProofRef = useRef<HTMLDivElement>(null);
-  const [hasScrolledEnough, setHasScrolledEnough] = useState(false);
-  const [timeSpent, setTimeSpent] = useState(0);
-  const startTimeRef = useRef(Date.now());
+  // const [hasScrolledEnough, setHasScrolledEnough] = useState(false);
+  // const [timeSpent, setTimeSpent] = useState(0);
+  // const startTimeRef = useRef(Date.now());
 
-  // Track time spent on page
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const currentTime = Date.now();
-      const spent = Math.floor((currentTime - startTimeRef.current) / 1000);
-      setTimeSpent(spent);
-    }, 1000);
+  // // Track time spent on page
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     const currentTime = Date.now();
+  //     const spent = Math.floor((currentTime - startTimeRef.current) / 1000);
+  //     setTimeSpent(spent);
+  //   }, 1000);
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
-  // Track scroll depth
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const scrollPercentage = (scrolled + windowHeight) / documentHeight;
+  // // Track scroll depth
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrolled = window.scrollY;
+  //     const windowHeight = window.innerHeight;
+  //     const documentHeight = document.documentElement.scrollHeight;
+  //     const scrollPercentage = (scrolled + windowHeight) / documentHeight;
       
-      if (scrollPercentage > 0.4) {
-        setHasScrolledEnough(true);
-      }
-    };
+  //     if (scrollPercentage > 0.4) {
+  //       setHasScrolledEnough(true);
+  //     }
+  //   };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
 
-  // Show Instagram modal logic
-  useEffect(() => {
-    if (!showInstagramModal && hasScrolledEnough && timeSpent >= 45) {
-      // Check if user has seen modal before (localStorage)
-      const hasSeenModal = localStorage.getItem('instagram-modal-seen');
-      if (!hasSeenModal) {
-        setShowInstagramModal(true);
-      }
-    }
-  }, [hasScrolledEnough, timeSpent, showInstagramModal]);
+  // // Show Instagram modal logic
+  // useEffect(() => {
+  //   if (!showInstagramModal && hasScrolledEnough && timeSpent >= 45) {
+  //     // Check if user has seen modal before (localStorage)
+  //     const hasSeenModal = localStorage.getItem('instagram-modal-seen');
+  //     if (!hasSeenModal) {
+  //       setShowInstagramModal(true);
+  //     }
+  //   }
+  // }, [hasScrolledEnough, timeSpent, showInstagramModal]);
 
-  // Intent to exit detection
-  useEffect(() => {
-    let exitIntentShown = false;
+  // // Intent to exit detection
+  // useEffect(() => {
+  //   let exitIntentShown = false;
     
-    const handleMouseLeave = (e: MouseEvent) => {
-      if (!exitIntentShown && e.clientY <= 0 && !showInstagramModal) {
-        const hasSeenModal = localStorage.getItem('instagram-modal-seen');
-        if (!hasSeenModal) {
-          setShowInstagramModal(true);
-          exitIntentShown = true;
-        }
-      }
-    };
+  //   const handleMouseLeave = (e: MouseEvent) => {
+  //     if (!exitIntentShown && e.clientY <= 0 && !showInstagramModal) {
+  //       const hasSeenModal = localStorage.getItem('instagram-modal-seen');
+  //       if (!hasSeenModal) {
+  //         setShowInstagramModal(true);
+  //         exitIntentShown = true;
+  //       }
+  //     }
+  //   };
 
-    document.addEventListener('mouseleave', handleMouseLeave);
-    return () => document.removeEventListener('mouseleave', handleMouseLeave);
-  }, [showInstagramModal]);
+  //   document.addEventListener('mouseleave', handleMouseLeave);
+  //   return () => document.removeEventListener('mouseleave', handleMouseLeave);
+  // }, [showInstagramModal]);
 
-  const handleCloseInstagramModal = () => {
-    setShowInstagramModal(false);
-    localStorage.setItem('instagram-modal-seen', 'true');
-  };
+  // const handleCloseInstagramModal = () => {
+  //   setShowInstagramModal(false);
+  //   localStorage.setItem('instagram-modal-seen', 'true');
+  // };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -177,10 +177,10 @@ const Index = () => {
       <FAQSection />
       <FinalCTASection />
       <StickyWhatsApp isVisible={showWhatsAppBanner} />
-      <InstagramModal 
+      {/* <InstagramModal 
         isVisible={showInstagramModal} 
         onClose={handleCloseInstagramModal} 
-      />
+      /> */}
       <Footer />
     </div>
   );

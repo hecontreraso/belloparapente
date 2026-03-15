@@ -4,6 +4,13 @@ import { Clock, Video, Car } from "lucide-react";
 const PricingSection = () => {
   const { t, lang } = useLanguage();
 
+  const handleWhatsAppClick = () => {
+    // Track Facebook Pixel Contact event
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Contact');
+    }
+  };
+
   const flights = [
     { duration: "15 min", priceCOP: "$220.000", priceUSD: "~$60 USD", popular: false },
     { duration: "20 min", priceCOP: "$290.000", priceUSD: "~$80 USD", popular: true },
@@ -44,6 +51,7 @@ const PricingSection = () => {
                 href={`https://wa.me/573203293577?text=${encodeURIComponent(t(`Hi! I want to book a ${flight.duration} paragliding flight`, `¡Hola! Quiero reservar un vuelo de ${flight.duration}`))}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={handleWhatsAppClick}
                 className="w-full btn-primary-gradient py-3 rounded-lg font-button font-semibold text-primary-foreground hover:opacity-90 transition-opacity text-center"
               >
                 {t("Book on WhatsApp", "Reservar por WhatsApp")}

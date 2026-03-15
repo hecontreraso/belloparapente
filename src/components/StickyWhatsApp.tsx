@@ -16,6 +16,13 @@ const StickyWhatsApp = ({ isVisible = true }: StickyWhatsAppProps) => {
   );
   const WHATSAPP_URL = `https://wa.me/573203293577?text=${whatsappMessage}`;
 
+  const handleWhatsAppClick = () => {
+    // Track Facebook Pixel Contact event
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Contact');
+    }
+  };
+
   return (
     <>
       {/* Floating WhatsApp button - desktop & mobile */}
@@ -23,6 +30,7 @@ const StickyWhatsApp = ({ isVisible = true }: StickyWhatsAppProps) => {
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={handleWhatsAppClick}
         className="fixed bottom-20 md:bottom-6 right-4 z-50 w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform animate-float"
         aria-label="WhatsApp"
       >
@@ -43,6 +51,7 @@ const StickyWhatsApp = ({ isVisible = true }: StickyWhatsAppProps) => {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={handleWhatsAppClick}
             className="block w-full btn-primary-gradient py-4 text-center font-button font-semibold text-primary-foreground text-sm"
           >
             {t("📲 Book your flight on WhatsApp", "📲 Reserva tu vuelo por WhatsApp")}
