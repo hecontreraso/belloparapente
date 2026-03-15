@@ -1,14 +1,14 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { trackWhatsAppConversion } from "@/lib/tracking";
 import { Clock, Video, Car } from "lucide-react";
 
 const PricingSection = () => {
   const { t, lang } = useLanguage();
 
-  const handleWhatsAppClick = () => {
-    // Track Facebook Pixel Contact event
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Contact');
-    }
+  const handleWhatsAppClick = (e: React.MouseEvent, whatsappUrl: string) => {
+    e.preventDefault();
+    // Track conversion for Google Ads and Facebook Pixel
+    trackWhatsAppConversion(whatsappUrl);
   };
 
   const flights = [
@@ -51,7 +51,7 @@ const PricingSection = () => {
                 href={`https://wa.me/573203293577?text=${encodeURIComponent(t(`Hi! I want to book a ${flight.duration} paragliding flight`, `¡Hola! Quiero reservar un vuelo de ${flight.duration}`))}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={handleWhatsAppClick}
+                onClick={(e) => handleWhatsAppClick(e, `https://wa.me/573203293577?text=${encodeURIComponent(t(`Hi! I want to book a ${flight.duration} paragliding flight`, `¡Hola! Quiero reservar un vuelo de ${flight.duration}`))}`)}
                 className="w-full btn-primary-gradient py-3 rounded-lg font-button font-semibold text-primary-foreground hover:opacity-90 transition-opacity text-center"
               >
                 {t("Book on WhatsApp", "Reservar por WhatsApp")}

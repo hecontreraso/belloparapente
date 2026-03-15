@@ -1,4 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { trackWhatsAppConversion } from "@/lib/tracking";
 
 interface StickyWhatsAppProps {
   isVisible?: boolean;
@@ -16,11 +17,10 @@ const StickyWhatsApp = ({ isVisible = true }: StickyWhatsAppProps) => {
   );
   const WHATSAPP_URL = `https://wa.me/573203293577?text=${whatsappMessage}`;
 
-  const handleWhatsAppClick = () => {
-    // Track Facebook Pixel Contact event
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Contact');
-    }
+  const handleWhatsAppClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // Track conversion for Google Ads and Facebook Pixel
+    trackWhatsAppConversion(WHATSAPP_URL);
   };
 
   return (

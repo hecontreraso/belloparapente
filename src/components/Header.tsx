@@ -1,4 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { trackWhatsAppConversion } from "@/lib/tracking";
 import { Instagram } from "lucide-react";
 import logo from "@/assets/logo.jpg";
 
@@ -16,11 +17,10 @@ const Header = () => {
   );
   const WHATSAPP_URL = `https://wa.me/573203293577?text=${whatsappMessage}`;
 
-  const handleWhatsAppClick = () => {
-    // Track Facebook Pixel Contact event
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Contact');
-    }
+  const handleWhatsAppClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // Track conversion for Google Ads and Facebook Pixel
+    trackWhatsAppConversion(WHATSAPP_URL);
   };
 
   return (
@@ -53,6 +53,7 @@ const Header = () => {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={handleWhatsAppClick}
           className="btn-primary-gradient px-5 py-2.5 rounded-lg text-sm font-button font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
         >
           {t("Book Now", "Reservar")}
