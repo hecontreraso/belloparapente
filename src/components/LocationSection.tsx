@@ -8,15 +8,15 @@ const LocationSection = () => {
     <section className="section-padding">
       <div className="max-w-5xl mx-auto">
         <h2 className="font-display text-4xl md:text-6xl text-center text-foreground mb-4">
-          {t("Location", "Ubicación")}
+          {t("Location - Paragliding Medellín", "Ubicación - Parapente Medellín")}
         </h2>
 
         <div className="flex items-center justify-center gap-2 text-muted-foreground mb-8">
           <MapPin className="w-5 h-5 text-primary" />
           <p>
             {t(
-              "San Félix launch site near Medellín. Only 25 minutes from the city.",
-              "Despegue en San Félix cerca de Medellín. A solo 40 minutos de la ciudad.",
+              "San Félix paragliding launch site near Medellín. Only 25 minutes from the city center.",
+              "Despegue de parapente San Félix cerca de Medellín. A solo 40 minutos del centro de la ciudad.",
             )}
           </p>
         </div>

@@ -25,7 +25,7 @@ const HeroSection = () => {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Paragliding over Medellín"
+          alt="Parapente Medellín - Vuelos en parapente sobre Medellín desde San Félix con Bello Parapente"
           className="w-full h-full object-cover md:object-center"
           style={{ objectPosition: '75% center' }}
           loading="eager"

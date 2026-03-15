@@ -29,9 +29,7 @@ const FinalCTASection = () => {
 
       <div className="relative z-10 max-w-3xl mx-auto text-center px-4">
         <h2 className="font-display text-5xl md:text-7xl text-foreground mb-4">
-          {t("Ready to Fly Over", "¿Listo Para Volar Sobre")}
-          <br />
-          <span className="text-gradient">{t("Medellín?", "Medellín?")}</span>
+          {t("Ready to Fly Over", "¿Listo Para Volar?")}
         </h2>
         <p className="text-muted-foreground mb-8 text-lg">
           {t("Book your paragliding adventure today.", "Reserva tu aventura en parapente hoy.")}

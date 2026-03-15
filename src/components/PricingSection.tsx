@@ -21,10 +21,10 @@ const PricingSection = () => {
     <section id="flights" className="section-padding">
       <div className="max-w-5xl mx-auto">
         <h2 className="font-display text-4xl md:text-6xl text-center text-foreground mb-4">
-          {t("Flight Options", "Opciones de Vuelo")}
+          {t("Paragliding Medellín Prices", "Precios Parapente Medellín")}
         </h2>
         <p className="text-center text-muted-foreground mb-12">
-          {t("Choose your adventure", "Elige tu aventura")}
+          {t("Best paragliding prices in Medellín - Choose your adventure", "Los mejores precios de parapente en Medellín - Elige tu aventura")}
         </p>
 
         <div className="grid md:grid-cols-3 gap-6 mb-8">
