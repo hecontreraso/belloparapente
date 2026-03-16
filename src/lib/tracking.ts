@@ -38,10 +38,7 @@ export function trackWhatsAppConversion(whatsappUrl: string) {
   
   // Track Facebook Pixel with InitiateContact event (more specific than Contact)
   if (typeof window !== 'undefined' && window.fbq) {
-    window.fbq('track', 'InitiateContact', {
-      content_name: 'WhatsApp Contact',
-      content_category: 'Booking'
-    });
+    window.fbq('track', 'Contact');
   }
 }
 
