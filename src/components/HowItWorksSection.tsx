@@ -26,7 +26,7 @@ const HowItWorksSection = () => {
     <section className="section-padding bg-secondary/30">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="font-display text-4xl md:text-6xl text-foreground mb-12">
-          {t("How Paragliding Medellín Works", "Cómo Funciona el Parapente Medellín")}
+          {t("How Paragliding Medellín Works", "Cómo volar en parapente en Medellin")}
         </h2>
 
         <div className="grid md:grid-cols-3 gap-8">
