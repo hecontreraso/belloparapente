@@ -57,6 +57,7 @@ const HeroSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={handleWhatsAppClick}
+            data-noeventtrack="true"
             className="btn-primary-gradient px-8 py-4 rounded-lg text-lg font-body font-semibold text-primary-foreground text-center hover:opacity-90 transition-opacity">
             
             {t("Book on WhatsApp", "Reservar por WhatsApp")}

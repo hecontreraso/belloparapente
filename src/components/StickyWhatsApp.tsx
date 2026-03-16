@@ -31,6 +31,7 @@ const StickyWhatsApp = ({ isVisible = true }: StickyWhatsAppProps) => {
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleWhatsAppClick}
+        data-noeventtrack="true"
         className="fixed bottom-20 md:bottom-6 right-4 z-50 w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform animate-float"
         aria-label="WhatsApp"
       >
@@ -52,6 +53,7 @@ const StickyWhatsApp = ({ isVisible = true }: StickyWhatsAppProps) => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={handleWhatsAppClick}
+            data-noeventtrack="true"
             className="block w-full btn-primary-gradient py-4 text-center font-button font-semibold text-primary-foreground text-sm"
           >
             {t("📲 Book your flight on WhatsApp", "📲 Reserva tu vuelo por WhatsApp")}

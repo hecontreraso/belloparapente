@@ -52,6 +52,7 @@ const PricingSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => handleWhatsAppClick(e, `https://wa.me/573203293577?text=${encodeURIComponent(t(`Hi! I want to book a ${flight.duration} paragliding flight`, `¡Hola! Quiero reservar un vuelo de ${flight.duration}`))}`)}
+                data-noeventtrack="true"
                 className="w-full btn-primary-gradient py-3 rounded-lg font-button font-semibold text-primary-foreground hover:opacity-90 transition-opacity text-center"
               >
                 {t("Book on WhatsApp", "Reservar por WhatsApp")}
