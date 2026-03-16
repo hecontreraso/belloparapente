@@ -36,9 +36,12 @@ export function trackWhatsAppConversion(whatsappUrl: string) {
   // Track Google Ads conversion
   gtag_report_conversion(whatsappUrl);
   
-  // Keep existing Facebook Pixel tracking
+  // Track Facebook Pixel with InitiateContact event (more specific than Contact)
   if (typeof window !== 'undefined' && window.fbq) {
-    window.fbq('track', 'Contact');
+    window.fbq('track', 'InitiateContact', {
+      content_name: 'WhatsApp Contact',
+      content_category: 'Booking'
+    });
   }
 }
 
@@ -50,8 +53,11 @@ export function trackInstagramConversion(instagramUrl: string) {
   // Track Google Ads conversion
   gtag_report_conversion(instagramUrl);
   
-  // Keep existing Facebook Pixel tracking
+  // Track Facebook Pixel with ViewContent event (more appropriate for Instagram clicks)
   if (typeof window !== 'undefined' && window.fbq) {
-    window.fbq('track', 'Lead');
+    window.fbq('track', 'ViewContent', {
+      content_name: 'Instagram Profile',
+      content_category: 'Social Media'
+    });
   }
 }
