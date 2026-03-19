@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import StatsBar from "@/components/StatsBar";
 import SocialProofSection from "@/components/SocialProofSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import PricingSection from "@/components/PricingSection";
