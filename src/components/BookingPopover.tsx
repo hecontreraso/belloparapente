@@ -1,23 +1,19 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackWhatsAppConversion, trackInstagramConversion } from "@/lib/tracking";
-import { Instagram } from "lucide-react";
+import { Instagram, X } from "lucide-react";
 
 const INSTAGRAM_URL = "https://instagram.com/belloparapente";
 
 interface BookingPopoverProps {
-  /** Custom WhatsApp message (already encoded) */
   whatsappMessage?: string;
-  /** Button className */
   className?: string;
-  /** Override button text */
   label?: string;
 }
 
 const BookingPopover = ({ whatsappMessage, className, label }: BookingPopoverProps) => {
   const { t } = useLanguage();
   const [open, setOpen] = useState(false);
-  const popoverRef = useRef<HTMLDivElement>(null);
 
   const defaultMessage = encodeURIComponent(
     t(
@@ -29,79 +25,83 @@ const BookingPopover = ({ whatsappMessage, className, label }: BookingPopoverPro
   const finalMessage = whatsappMessage || defaultMessage;
   const WHATSAPP_URL = `https://wa.me/573203293577?text=${finalMessage}`;
 
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (popoverRef.current && !popoverRef.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
-    };
-    if (open) document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [open]);
-
-  const handleWhatsApp = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleWhatsApp = () => {
     trackWhatsAppConversion(WHATSAPP_URL);
     setOpen(false);
   };
 
-  const handleInstagram = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleInstagram = () => {
     trackInstagramConversion(INSTAGRAM_URL);
     window.open(INSTAGRAM_URL, "_blank", "noopener,noreferrer");
     setOpen(false);
   };
 
   return (
-    <div className="relative inline-flex" ref={popoverRef}>
+    <>
       <button
-        onClick={() => setOpen(!open)}
+        onClick={() => setOpen(true)}
         className={className}
         type="button"
       >
-        {label || t("I want to fly", "Quiero volar")}
+        {label || t("Book your flight", "Reserva tu vuelo")}
       </button>
 
       {open && (
-        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-[60] min-w-[220px] animate-in fade-in-0 zoom-in-95 duration-150">
-          <div className="bg-card border border-border rounded-xl shadow-xl overflow-hidden">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleWhatsApp}
-              data-noeventtrack="true"
-              className="flex items-center gap-3 px-4 py-3 hover:bg-secondary/50 transition-colors text-foreground"
-            >
-              <div className="w-8 h-8 rounded-full bg-[#25D366] flex items-center justify-center flex-shrink-0">
-                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488" />
-                </svg>
-              </div>
-              <span className="font-body font-medium text-sm">
-                {t("Book on WhatsApp", "Reservar por WhatsApp")}
-              </span>
-            </a>
-            <div className="h-px bg-border" />
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in-0 duration-200"
+          onClick={() => setOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-xs bg-card border border-border rounded-2xl shadow-2xl animate-in zoom-in-95 fade-in-0 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
             <button
-              onClick={handleInstagram}
-              className="flex items-center gap-3 px-4 py-3 hover:bg-secondary/50 transition-colors text-foreground w-full text-left"
+              onClick={() => setOpen(false)}
+              className="absolute top-3 right-3 w-7 h-7 rounded-full bg-secondary hover:bg-secondary/80 flex items-center justify-center transition-colors z-10"
+              aria-label="Cerrar"
             >
-              <div className="w-8 h-8 rounded-full flex items-center justify-center bg-gradient-to-br from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] flex-shrink-0">
-                <Instagram className="w-5 h-5 text-white" />
-              </div>
-              <span className="font-body font-medium text-sm">
-                {t("Book on Instagram", "Reservar por Instagram")}
-              </span>
+              <X className="w-3.5 h-3.5 text-foreground" />
             </button>
+
+            <div className="p-5 pt-6">
+              <h3 className="font-display text-2xl text-foreground text-center mb-1">
+                {t("Book your flight", "Reserva tu vuelo")}
+              </h3>
+              <p className="text-sm text-muted-foreground text-center mb-5">
+                {t("Choose how to contact us", "Elige cómo contactarnos")}
+              </p>
+
+              <div className="space-y-3">
+                {/* WhatsApp */}
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={handleWhatsApp}
+                  data-noeventtrack="true"
+                  className="flex items-center gap-3 w-full px-4 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] transition-colors text-white font-button font-semibold text-sm"
+                >
+                  <svg className="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488" />
+                  </svg>
+                  {t("Book on WhatsApp", "Reservar por WhatsApp")}
+                </a>
+
+                {/* Instagram */}
+                <button
+                  onClick={handleInstagram}
+                  className="flex items-center gap-3 w-full px-4 py-3.5 rounded-xl bg-gradient-to-r from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:opacity-90 transition-opacity text-white font-button font-semibold text-sm"
+                >
+                  <Instagram className="w-6 h-6 flex-shrink-0" />
+                  {t("Book on Instagram", "Reservar por Instagram")}
+                </button>
+              </div>
+            </div>
           </div>
-          {/* Arrow */}
-          <div className="absolute left-1/2 -translate-x-1/2 -bottom-1.5 w-3 h-3 bg-card border-r border-b border-border rotate-45" />
         </div>
       )}
-    </div>
+    </>
   );
 };
 
