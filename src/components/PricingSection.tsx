@@ -12,9 +12,9 @@ const PricingSection = () => {
   };
 
   const flights = [
-    { duration: "15 min", priceCOP: "$220.000", priceUSD: "~$60 USD", popular: false },
-    { duration: "20 min", priceCOP: "$290.000", priceUSD: "~$80 USD", popular: true },
-    { duration: "30 min", priceCOP: "$440.000", priceUSD: "~$120 USD", popular: false },
+    { duration: "15 min", priceCOP: "$220.000", priceUSD: "$60 USD", popular: false },
+    { duration: "20 min", priceCOP: "$290.000", priceUSD: "$80 USD", popular: true },
+    { duration: "30 min", priceCOP: "$440.000", priceUSD: "$120 USD", popular: false },
   ];
 
   return (
@@ -86,7 +86,7 @@ const PricingSection = () => {
           </div>
           <div className="text-right">
             <span className="text-xl font-bold text-foreground">$140.000 {t("COP", "")}</span>
-            {lang === "en" && <p className="text-sm text-muted-foreground">~$38 USD</p>}
+            {lang === "en" && <p className="text-sm text-muted-foreground">40 USD</p>}
           </div>
         </div>
         </div>
