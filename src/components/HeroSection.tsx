@@ -1,24 +1,9 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import { trackWhatsAppConversion } from "@/lib/tracking";
 import heroImage from "@/assets/hero-paragliding.jpg";
+import BookingPopover from "@/components/BookingPopover";
 
 const HeroSection = () => {
   const { t } = useLanguage();
-
-  // WhatsApp URL dinámico según idioma
-  const whatsappMessage = encodeURIComponent(
-    t(
-      "Hello! I want to book a paragliding flight over Medellín. Could you give me more information?",
-      "¡Hola! Quiero reservar un vuelo en parapente sobre Medellín. ¿Podrían darme más información?"
-    )
-  );
-  const WHATSAPP_URL = `https://wa.me/573203293577?text=${whatsappMessage}`;
-
-  const handleWhatsAppClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    // Track conversion for Google Ads and Facebook Pixel
-    trackWhatsAppConversion(WHATSAPP_URL);
-  };
 
   return (
     <section className="relative min-h-screen flex items-end pb-20 md:pb-32">
@@ -32,8 +17,8 @@ const HeroSection = () => {
           fetchPriority="high"
           decoding="async"
           width={1920}
-          height={1080} />
-        
+          height={1080}
+        />
         <div className="absolute inset-0 hero-gradient" />
       </div>
 
@@ -52,26 +37,19 @@ const HeroSection = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleWhatsAppClick}
-            data-noeventtrack="true"
-            className="btn-primary-gradient px-8 py-4 rounded-lg text-lg font-body font-semibold text-primary-foreground text-center hover:opacity-90 transition-opacity">
-            
-            {t("Book on WhatsApp", "Reservar por WhatsApp")}
-          </a>
+          <BookingPopover
+            className="btn-primary-gradient px-8 py-4 rounded-lg text-lg font-body font-semibold text-primary-foreground text-center hover:opacity-90 transition-opacity"
+          />
           <a
             href="#flights"
-            className="px-8 py-4 rounded-lg text-lg font-body font-semibold text-foreground border border-foreground/20 text-center hover:bg-foreground/10 transition-colors">
-            
+            className="px-8 py-4 rounded-lg text-lg font-body font-semibold text-foreground border border-foreground/20 text-center hover:bg-foreground/10 transition-colors"
+          >
             {t("See Flight Options", "Ver Opciones de Vuelo")}
           </a>
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 };
 
 export default HeroSection;
