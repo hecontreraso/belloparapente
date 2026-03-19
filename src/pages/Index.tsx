@@ -168,6 +168,7 @@ const Index = () => {
       <Header />
       <HeroSection />
       <StatsBar />
+      <InstagramSection />
       <div ref={socialProofRef}>
         <SocialProofSection />
       </div>
@@ -175,7 +176,6 @@ const Index = () => {
       <PricingSection />
       <WhyFlySection />
       <LocationSection />
-      <InstagramSection />
       <FAQSection />
       <FinalCTASection />
       <StickyWhatsApp isVisible={showWhatsAppBanner} />
