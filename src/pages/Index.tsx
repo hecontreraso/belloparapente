@@ -167,6 +167,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <HeroSection />
+      <StatsBar />
       <div ref={socialProofRef}>
         <SocialProofSection />
       </div>
