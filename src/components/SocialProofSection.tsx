@@ -135,14 +135,6 @@ const SocialProofSection = () => {
   return (
     <section className="section-padding">
       <div className="max-w-6xl mx-auto">
-        {/* Dynamic social proof */}
-        <div className="flex items-center justify-center gap-2 mb-6 text-primary font-medium">
-          <span className="text-lg">🔥</span>
-          <span className="text-sm md:text-base">
-            {t("37 people booked a flight this week", "37 personas reservaron un vuelo esta semana")}
-          </span>
-        </div>
-
         <h2 className="font-display text-4xl md:text-6xl text-center text-foreground mb-4">
           {t("One of the Best Experiences", "Una de las Mejores Experiencias")}
           <br />
