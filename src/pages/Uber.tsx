@@ -3,8 +3,8 @@ import { trackWhatsAppConversion } from "@/lib/tracking";
 import { Instagram } from "lucide-react";
 import logo from "@/assets/logo.jpg";
 
-const VIDEO_EN = "https://pub-b1e334eefc6c4d63a2190bc287e9fda4.r2.dev/720-english.MOV";
-const VIDEO_ES = "https://pub-b1e334eefc6c4d63a2190bc287e9fda4.r2.dev/720-spanish.MOV";
+const VIDEO_EN = "https://pub-b1e334eefc6c4d63a2190bc287e9fda4.r2.dev/720-eng.MOV";
+const VIDEO_ES = "https://pub-b1e334eefc6c4d63a2190bc287e9fda4.r2.dev/720-esp.MOV";
 
 const Uber = () => {
   const { lang, setLang, t } = useLanguage();
