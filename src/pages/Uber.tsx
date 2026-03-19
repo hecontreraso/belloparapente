@@ -1,6 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackWhatsAppConversion } from "@/lib/tracking";
-import { Instagram } from "lucide-react";
+import { Instagram, Volume2, VolumeX } from "lucide-react";
+import { useRef, useState } from "react";
 import logo from "@/assets/logo.jpg";
 
 const VIDEO_EN = "https://pub-b1e334eefc6c4d63a2190bc287e9fda4.r2.dev/720-eng.MOV";
@@ -8,6 +9,8 @@ const VIDEO_ES = "https://pub-b1e334eefc6c4d63a2190bc287e9fda4.r2.dev/720-esp.MO
 
 const Uber = () => {
   const { lang, setLang, t } = useLanguage();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
 
   const videoUrl = lang === "en" ? VIDEO_EN : VIDEO_ES;
 
@@ -45,6 +48,7 @@ const Uber = () => {
           {/* Video */}
           <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/30 bg-black">
             <video
+              ref={videoRef}
               key={videoUrl}
               className="w-full aspect-[9/16] object-cover"
               controls
@@ -55,6 +59,18 @@ const Uber = () => {
             >
               <source src={videoUrl} type="video/mp4" />
             </video>
+            <button
+              onClick={() => {
+                if (videoRef.current) {
+                  videoRef.current.muted = !videoRef.current.muted;
+                  setIsMuted(!isMuted);
+                }
+              }}
+              className="absolute top-3 right-3 z-10 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-colors"
+              aria-label={isMuted ? "Unmute" : "Mute"}
+            >
+              {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+            </button>
           </div>
 
           {/* CTA below video */}
