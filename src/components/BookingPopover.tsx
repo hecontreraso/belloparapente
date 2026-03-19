@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackWhatsAppConversion, trackInstagramConversion } from "@/lib/tracking";
 import { Instagram, X } from "lucide-react";
@@ -46,7 +47,7 @@ const BookingPopover = ({ whatsappMessage, className, label }: BookingPopoverPro
         {label || t("Book your flight", "Reserva tu vuelo")}
       </button>
 
-      {open && (
+      {open && createPortal(
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in-0 duration-200"
           onClick={() => setOpen(false)}
@@ -99,7 +100,8 @@ const BookingPopover = ({ whatsappMessage, className, label }: BookingPopoverPro
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
