@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackWhatsAppConversion, trackInstagramConversion } from "@/lib/tracking";
 import { Instagram, X } from "lucide-react";
