@@ -1,24 +1,9 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import { trackWhatsAppConversion } from "@/lib/tracking";
 import ctaBgImage from "@/assets/final-cta-bg.jpg";
+import BookingPopover from "@/components/BookingPopover";
 
 const FinalCTASection = () => {
   const { t } = useLanguage();
-
-  // WhatsApp URL dinámico según idioma
-  const whatsappMessage = encodeURIComponent(
-    t(
-      "Hello! I want to book a paragliding flight over Medellín. Could you give me more information?",
-      "¡Hola! Quiero reservar un vuelo en parapente sobre Medellín. ¿Podrían darme más información?"
-    )
-  );
-  const WHATSAPP_URL = `https://wa.me/573203293577?text=${whatsappMessage}`;
-
-  const handleWhatsAppClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    // Track conversion for Google Ads and Facebook Pixel
-    trackWhatsAppConversion(WHATSAPP_URL);
-  };
 
   return (
     <section className="relative py-24 md:py-32">
@@ -34,14 +19,9 @@ const FinalCTASection = () => {
         <p className="text-muted-foreground mb-8 text-lg">
           {t("Book your paragliding adventure today.", "Reserva tu aventura en parapente hoy.")}
         </p>
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"          onClick={handleWhatsAppClick}          data-noeventtrack="true"
+        <BookingPopover
           className="inline-flex btn-primary-gradient px-10 py-4 rounded-lg text-lg font-button font-semibold text-primary-foreground hover:opacity-90 transition-opacity animate-pulse-glow"
-        >
-          {t("Message us on WhatsApp", "Escríbenos por WhatsApp")}
-        </a>
+        />
       </div>
     </section>
   );
