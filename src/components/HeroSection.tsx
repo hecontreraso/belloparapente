@@ -1,27 +1,38 @@
+import { useState, useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-paragliding.jpg";
 import BookingPopover from "@/components/BookingPopover";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Loader2 } from "lucide-react";
 
 const HERO_VIDEO_URL = "https://pub-b1e334eefc6c4d63a2190bc287e9fda4.r2.dev/hero-mobile.mp4";
 
 const HeroSection = () => {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
+  const [videoReady, setVideoReady] = useState(false);
 
   return (
     <section className="relative min-h-screen flex items-end pb-20 md:pb-32">
       <div className="absolute inset-0">
         {isMobile ? (
-          <video
-            src={HERO_VIDEO_URL}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-            style={{ objectPosition: '75% center' }}
-          />
+          <>
+            {!videoReady && (
+              <div className="absolute inset-0 z-[1] flex items-center justify-center bg-background">
+                <Loader2 className="w-8 h-8 text-primary animate-spin" />
+              </div>
+            )}
+            <video
+              src={HERO_VIDEO_URL}
+              autoPlay
+              loop
+              muted
+              playsInline
+              onPlaying={() => setVideoReady(true)}
+              className="w-full h-full object-cover"
+              style={{ objectPosition: '75% center' }}
+            />
+          </>
         ) : (
           <img
             src={heroImage}
