@@ -31,8 +31,8 @@ const HeroSection = () => {
 
         <p className="text-lg md:text-xl max-w-xl mb-8 text-secondary-foreground">
           {t(
-            "See the city from the sky. Flights from $220.000",
-            "Mira Medellín desde el cielo. Vuelos desde $220.000"
+            "Paragliding over the city from $220.000 (60 USD)",
+            "Vuela en parapente desde $220.000"
           )}
         </p>
 
