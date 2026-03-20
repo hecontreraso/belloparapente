@@ -24,7 +24,7 @@ export function gtag_report_conversion(url?: string) {
 }
 
 export function trackWhatsAppConversion(whatsappUrl: string) {
-  gtag_report_conversion(whatsappUrl);
+  gtag_report_conversion();
 
   if (typeof window !== "undefined" && window.fbq) {
     window.fbq("track", "Contact");
