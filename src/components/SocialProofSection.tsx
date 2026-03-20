@@ -161,9 +161,6 @@ const SocialProofSection = () => {
                 ))}
               </div>
             </div>
-            <span className="text-sm text-muted-foreground">
-              {t("Based on Google reviews", "Basado en reseñas de Google")}
-            </span>
             <span className="text-xs text-muted-foreground/70">
               powered by <span className="font-semibold text-foreground">Google</span>
             </span>
