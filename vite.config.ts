@@ -40,7 +40,6 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
-  // Optimizaciones para SEO
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom'],
   },

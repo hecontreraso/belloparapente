@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.jpg" />
 
-    <!-- Fonts loaded locally from /fonts/ -->
-
-    <!-- Preload hero image (LCP element) -->
     <link rel="preload" as="image" href="/src/assets/hero-paragliding.jpg" type="image/jpeg" />
 
     <title>
@@ -29,7 +26,6 @@
     />
     <meta name="googlebot" content="index, follow" />
 
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18017942070"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -39,14 +35,12 @@
       gtag('config', 'AW-18017942070');
     </script>
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://belloparapente.com" />
     <meta property="og:site_name" content="Bello Parapente" />
     <meta property="og:locale" content="es_CO" />
     <meta property="og:locale:alternate" content="en_US" />
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@belloparapente" />
     <meta name="twitter:creator" content="@belloparapente" />
@@ -133,7 +127,6 @@
       }
     </script>
 
-    <!-- Meta Pixel Code (deferred) -->
     <script>
       window.addEventListener('load', function() {
         !(function (f, b, e, v, n, t, s) {
@@ -163,12 +156,10 @@
           autoConfig: false,
           debug: false
         });
-        // Desactivar eventos automáticos específicos
         fbq('set', 'autoConfig', false, '1335756815265796');
         fbq("track", "PageView");
       });
     </script>
-    <!-- End Meta Pixel Code -->
 
     <meta
       property="og:title"
@@ -196,7 +187,6 @@
     />
   </head>
   <body>
-    <!-- Pre-rendered content for SEO -->
     <noscript>
       <div
         style="
@@ -306,7 +296,6 @@
       </div>
     </noscript>
 
-    <!-- Meta Pixel noscript (moved to body) -->
     <noscript
       ><img
         height="1"
@@ -316,7 +305,6 @@
         src="https://www.facebook.com/tr?id=1335756815265796&ev=PageView&noscript=1"
     /></noscript>
 
-    <!-- GitHub Pages SPA redirect handler -->
     <script>
       (function(){
         var redirect = sessionStorage.redirect;
@@ -325,7 +313,6 @@
           history.replaceState(null, null, redirect);
         }
       })();
-      // Parse ?/ query param from 404.html redirect
       (function(l) {
         if (l.search[1] === '/') {
           var decoded = l.search.slice(1).split('&').map(function(s) {

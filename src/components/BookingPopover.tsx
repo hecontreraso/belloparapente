@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackWhatsAppConversion, trackInstagramConversion } from "@/lib/tracking";
@@ -9,7 +9,7 @@ const INSTAGRAM_URL = "https://instagram.com/belloparapente";
 interface BookingPopoverProps {
   whatsappMessage?: string;
   className?: string;
-  label?: string;
+  label?: ReactNode;
 }
 
 const BookingPopover = ({ whatsappMessage, className, label }: BookingPopoverProps) => {
@@ -56,7 +56,6 @@ const BookingPopover = ({ whatsappMessage, className, label }: BookingPopoverPro
             className="relative w-full max-w-xs bg-card border border-border rounded-2xl shadow-2xl animate-in zoom-in-95 fade-in-0 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close button */}
             <button
               onClick={() => setOpen(false)}
               className="absolute top-3 right-3 w-7 h-7 rounded-full bg-secondary hover:bg-secondary/80 flex items-center justify-center transition-colors z-10"
@@ -74,7 +73,6 @@ const BookingPopover = ({ whatsappMessage, className, label }: BookingPopoverPro
               </p>
 
               <div className="space-y-3">
-                {/* WhatsApp */}
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
@@ -89,7 +87,6 @@ const BookingPopover = ({ whatsappMessage, className, label }: BookingPopoverPro
                   {t("Book on WhatsApp", "Reservar por WhatsApp")}
                 </a>
 
-                {/* Instagram */}
                 <button
                   onClick={handleInstagram}
                   className="flex items-center gap-3 w-full px-4 py-3.5 rounded-xl bg-gradient-to-r from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:opacity-90 transition-opacity text-white font-button font-semibold text-sm"

@@ -1,10 +1,6 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 
-/**
- * Script para generar contenido SEO estático en build time
- */
-
 const SEO_CONTENT = {
   title: 'Parapente en Medellín | Bello Parapente - Vuelos desde San Félix',
   description: 'Bello Parapente ofrece vuelos en parapente sobre Medellín desde el famoso despegue de San Félix, uno de los mejores lugares para volar en Colombia. Disfruta vistas espectaculares desde $220.000 COP. Reserva tu aventura ahora.',

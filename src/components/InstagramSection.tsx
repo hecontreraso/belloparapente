@@ -16,9 +16,7 @@ const INSTAGRAM_URL = "https://instagram.com/belloparapente";
 const InstagramSection = () => {
   const { t } = useLanguage();
 
-  const handleInstagramClick = (e: React.MouseEvent, url: string = INSTAGRAM_URL) => {
-    e.preventDefault();
-    // Track conversion for Google Ads and Facebook Pixel
+  const handleInstagramClick = (url: string = INSTAGRAM_URL) => {
     trackInstagramConversion(url);
   };
 
@@ -42,7 +40,6 @@ const InstagramSection = () => {
           {t("New flight videos every week!", "Nuevos videos de vuelos cada semana")}{" "}<span>🎥</span>
         </p>
 
-        {/* Thumbnail Grid */}
         <div className="grid grid-cols-3 gap-2 md:gap-4 mb-8">
           {thumbnails.map((thumb, i) => (
             <a
@@ -50,7 +47,7 @@ const InstagramSection = () => {
               href={thumb.url}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => handleInstagramClick(e, thumb.url)}
+              onClick={() => handleInstagramClick(thumb.url)}
               className="relative aspect-[9/16] overflow-hidden rounded-xl group"
             >
               <img
@@ -73,7 +70,7 @@ const InstagramSection = () => {
           href={INSTAGRAM_URL}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={(e) => handleInstagramClick(e, INSTAGRAM_URL)}
+          onClick={() => handleInstagramClick(INSTAGRAM_URL)}
           className="inline-flex items-center gap-3 px-8 py-4 rounded-xl text-white font-button font-semibold text-lg bg-gradient-to-r from-[hsl(330,80%,55%)] via-[hsl(10,85%,55%)] to-[hsl(40,95%,55%)] hover:opacity-90 transition-opacity shadow-lg"
         >
           <Instagram className="w-5 h-5" />

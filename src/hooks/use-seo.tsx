@@ -18,12 +18,10 @@ export const useSEO = ({
   noindex = false
 }: SEOProps) => {
   useEffect(() => {
-    // Actualizar title
     if (title) {
       document.title = title;
     }
 
-    // Actualizar meta description
     if (description) {
       let metaDescription = document.querySelector('meta[name="description"]');
       if (metaDescription) {
@@ -35,7 +33,6 @@ export const useSEO = ({
         document.head.appendChild(metaDescription);
       }
 
-      // Actualizar og:description
       let ogDescription = document.querySelector('meta[property="og:description"]');
       if (ogDescription) {
         ogDescription.setAttribute('content', description);
@@ -46,7 +43,6 @@ export const useSEO = ({
         document.head.appendChild(ogDescription);
       }
 
-      // Actualizar twitter:description
       let twitterDescription = document.querySelector('meta[name="twitter:description"]');
       if (twitterDescription) {
         twitterDescription.setAttribute('content', description);
@@ -58,7 +54,6 @@ export const useSEO = ({
       }
     }
 
-    // Actualizar keywords
     if (keywords) {
       let metaKeywords = document.querySelector('meta[name="keywords"]');
       if (metaKeywords) {
@@ -71,7 +66,6 @@ export const useSEO = ({
       }
     }
 
-    // Actualizar canonical
     if (canonicalUrl) {
       let canonical = document.querySelector('link[rel="canonical"]');
       if (canonical) {
@@ -84,7 +78,6 @@ export const useSEO = ({
       }
     }
 
-    // Actualizar OG title
     if (title) {
       let ogTitle = document.querySelector('meta[property="og:title"]');
       if (ogTitle) {
@@ -96,7 +89,6 @@ export const useSEO = ({
         document.head.appendChild(ogTitle);
       }
 
-      // Actualizar twitter:title
       let twitterTitle = document.querySelector('meta[name="twitter:title"]');
       if (twitterTitle) {
         twitterTitle.setAttribute('content', title);
@@ -108,7 +100,6 @@ export const useSEO = ({
       }
     }
 
-    // Actualizar OG image
     if (ogImage) {
       let ogImageMeta = document.querySelector('meta[property="og:image"]');
       if (ogImageMeta) {
@@ -120,7 +111,6 @@ export const useSEO = ({
         document.head.appendChild(ogImageMeta);
       }
 
-      // Actualizar twitter:image
       let twitterImage = document.querySelector('meta[name="twitter:image"]');
       if (twitterImage) {
         twitterImage.setAttribute('content', ogImage);
@@ -132,7 +122,6 @@ export const useSEO = ({
       }
     }
 
-    // Actualizar robots
     let robotsMeta = document.querySelector('meta[name="robots"]');
     const robotsContent = noindex ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1';
     
@@ -148,14 +137,12 @@ export const useSEO = ({
   }, [title, description, keywords, canonicalUrl, ogImage, noindex]);
 };
 
-// Hook para structured data
 export const useStructuredData = (data: Record<string, unknown>) => {
   useEffect(() => {
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.textContent = JSON.stringify(data);
     
-    // Buscar y reemplazar script existente o agregar nuevo
     const existingScript = document.querySelector('script[type="application/ld+json"]');
     if (existingScript && existingScript.textContent !== JSON.stringify(data)) {
       document.head.removeChild(existingScript);

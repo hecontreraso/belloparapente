@@ -14,7 +14,6 @@ const InstagramModal = ({ isVisible, onClose }: InstagramModalProps) => {
   useEffect(() => {
     if (isVisible) {
       setIsAnimating(true);
-      // Prevent body scroll when modal is open
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -27,11 +26,10 @@ const InstagramModal = ({ isVisible, onClose }: InstagramModalProps) => {
 
   const handleClose = () => {
     setIsAnimating(false);
-    setTimeout(onClose, 300); // Wait for animation to complete
+    setTimeout(onClose, 300);
   };
 
   const handleInstagramClick = () => {
-    // Track Facebook Pixel Lead event
     if (typeof window !== 'undefined' && window.fbq) {
       window.fbq('track', 'Lead');
     }
@@ -54,7 +52,6 @@ const InstagramModal = ({ isVisible, onClose }: InstagramModalProps) => {
         }`}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close button */}
         <button
           onClick={handleClose}
           className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors z-10"
@@ -63,24 +60,19 @@ const InstagramModal = ({ isVisible, onClose }: InstagramModalProps) => {
           <X className="w-4 h-4 text-gray-600" />
         </button>
 
-        {/* Content */}
         <div className="p-6 text-center">
-          {/* Instagram icon */}
           <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#405DE6] via-[#E1306C] to-[#FFDC80] flex items-center justify-center">
             <Instagram className="w-8 h-8 text-white" />
           </div>
 
-          {/* Title */}
           <h2 className="font-display text-2xl md:text-3xl font-bold text-gray-900 mb-2">
             {t("🎁 Special Gift!", "🎁 ¡Regalo Especial!")}
           </h2>
 
-          {/* Subtitle */}
           <p className="text-lg font-semibold text-primary mb-4">
             {t("+5 Minutes Extra Flight", "+5 Minutos Extra de Vuelo")}
           </p>
 
-          {/* Description */}
           <p className="text-gray-600 mb-6 leading-relaxed">
             {t(
               "Follow us on Instagram to see epic flight videos and receive 5 extra minutes on your paragliding adventure!",
@@ -88,7 +80,6 @@ const InstagramModal = ({ isVisible, onClose }: InstagramModalProps) => {
             )}
           </p>
 
-          {/* CTA Button */}
           <button
             onClick={handleInstagramClick}
             className="w-full bg-gradient-to-r from-[#405DE6] via-[#E1306C] to-[#FFDC80] text-white font-semibold py-4 px-6 rounded-xl hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 mb-4"
@@ -99,7 +90,6 @@ const InstagramModal = ({ isVisible, onClose }: InstagramModalProps) => {
             </div>
           </button>
 
-          {/* Fine print */}
           <p className="text-xs text-gray-500">
             {t(
               "Show this offer when booking your flight",

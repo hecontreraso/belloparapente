@@ -9,7 +9,6 @@ const LeadCaptureSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In production, connect this to a backend
     setSubmitted(true);
   };
 

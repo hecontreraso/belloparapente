@@ -29,7 +29,6 @@ const Uber = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      {/* Minimal header */}
       <header className="flex items-center justify-between px-4 py-3">
         <a href="/">
           <img src={logo} alt="Bello Parapente" className="h-10 rounded" />
@@ -42,10 +41,8 @@ const Uber = () => {
         </button>
       </header>
 
-      {/* Video section */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 pb-28">
         <div className="w-full max-w-lg mx-auto">
-          {/* Video */}
           <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/30 bg-black">
             <video
               ref={videoRef}
@@ -73,7 +70,6 @@ const Uber = () => {
             </button>
           </div>
 
-          {/* CTA below video */}
           <div className="mt-6 text-center space-y-4">
             <h1 className="font-display text-4xl md:text-5xl text-foreground leading-tight">
               {t("Paraglide Over", "Vuela en Parapente Sobre")}
