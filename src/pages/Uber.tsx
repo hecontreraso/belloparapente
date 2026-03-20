@@ -74,11 +74,6 @@ const Uber = () => {
           </div>
 
           <div className="mt-6 text-center space-y-4">
-            <h1 className="font-display text-4xl md:text-5xl text-foreground leading-tight">
-              {t("Paraglide Over", "Vuela en Parapente Sobre")}
-              {" "}
-              <span className="text-gradient">Medellín</span>
-            </h1>
             <div className="flex flex-col sm:flex-row gap-3">
               <a
                 href={WHATSAPP_URL}
