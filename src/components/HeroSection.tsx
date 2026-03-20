@@ -1,24 +1,40 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-paragliding.jpg";
 import BookingPopover from "@/components/BookingPopover";
+import { useIsMobile } from "@/hooks/use-mobile";
+
+const HERO_VIDEO_URL = "https://pub-b1e334eefc6c4d63a2190bc287e9fda4.r2.dev/hero-mobile.mp4";
 
 const HeroSection = () => {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
 
   return (
     <section className="relative min-h-screen flex items-end pb-20 md:pb-32">
       <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Parapente Medellín - Vuelos en parapente sobre Medellín desde San Félix con Bello Parapente"
-          className="w-full h-full object-cover md:object-center"
-          style={{ objectPosition: '75% center' }}
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-          width={1920}
-          height={1080}
-        />
+        {isMobile ? (
+          <video
+            src={HERO_VIDEO_URL}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            style={{ objectPosition: '75% center' }}
+          />
+        ) : (
+          <img
+            src={heroImage}
+            alt="Parapente Medellín - Vuelos en parapente sobre Medellín desde San Félix con Bello Parapente"
+            className="w-full h-full object-cover md:object-center"
+            style={{ objectPosition: '75% center' }}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            width={1920}
+            height={1080}
+          />
+        )}
         <div className="absolute inset-0 hero-gradient" />
       </div>
 
