@@ -48,12 +48,29 @@ const Uber = () => {
               ref={videoRef}
               key={videoUrl}
               className="w-full aspect-[9/16] object-cover"
-              controls
+              controls={isPlaying}
               playsInline
               preload="auto"
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
+              onEnded={() => setIsPlaying(false)}
             >
               <source src={videoUrl} type="video/mp4" />
             </video>
+            {!isPlaying && (
+              <button
+                onClick={() => {
+                  if (videoRef.current) {
+                    videoRef.current.play();
+                  }
+                }}
+                className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 transition-opacity hover:bg-black/50"
+              >
+                <div className="w-20 h-20 rounded-full bg-primary/90 flex items-center justify-center shadow-lg shadow-primary/30 transition-transform hover:scale-105 active:scale-95">
+                  <Play className="w-9 h-9 text-primary-foreground ml-1" fill="currentColor" />
+                </div>
+              </button>
+            )}
           </div>
 
           <div className="mt-6 text-center space-y-4">
