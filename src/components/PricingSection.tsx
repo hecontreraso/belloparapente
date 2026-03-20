@@ -55,33 +55,29 @@ const PricingSection = () => {
           })}
         </div>
 
-        <div className="space-y-4 mt-8">
-          <div className="card-gradient rounded-xl border border-border/50 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <Video className="w-6 h-6 text-primary" />
+        <div className="grid sm:grid-cols-2 gap-4 mt-8">
+          <div className="card-gradient rounded-xl border border-border/50 p-6">
+            <div className="flex items-center gap-3 mb-3">
+              <Video className="w-6 h-6 text-primary flex-shrink-0" />
               <div>
                 <p className="text-foreground font-semibold">{t("GoPro Flight Video", "Video GoPro del Vuelo")}</p>
                 <p className="text-sm text-muted-foreground">{t("Optional add-on", "Complemento opcional")}</p>
               </div>
             </div>
-            <div className="text-left sm:text-right">
-              <span className="text-xl font-bold text-foreground">$50.000 {t("COP", "")}</span>
-              {lang === "en" && <p className="text-sm text-muted-foreground">~$14 USD</p>}
-            </div>
+            <p className="text-2xl font-bold text-foreground">$50.000 {t("COP", "")}</p>
+            {lang === "en" && <p className="text-sm text-muted-foreground">~$14 USD</p>}
           </div>
 
-          <div className="card-gradient rounded-xl border border-border/50 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <Car className="w-6 h-6 text-primary" />
+          <div className="card-gradient rounded-xl border border-border/50 p-6">
+            <div className="flex items-center gap-3 mb-3">
+              <Car className="w-6 h-6 text-primary flex-shrink-0" />
               <div>
                 <p className="text-foreground font-semibold">{t("Round-trip Transportation", "Transporte ida y vuelta")}</p>
                 <p className="text-sm text-muted-foreground">{t("From anywhere in the metropolitan area", "Desde cualquier parte del área metropolitana")}</p>
               </div>
             </div>
-            <div className="text-right">
-              <span className="text-xl font-bold text-foreground">$140.000 {t("COP", "")}</span>
-              {lang === "en" && <p className="text-sm text-muted-foreground">40 USD</p>}
-            </div>
+            <p className="text-2xl font-bold text-foreground">$140.000 {t("COP", "")}</p>
+            {lang === "en" && <p className="text-sm text-muted-foreground">~$40 USD</p>}
           </div>
         </div>
       </div>
