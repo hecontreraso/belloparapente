@@ -1,7 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackWhatsAppConversion } from "@/lib/tracking";
-import { Instagram } from "lucide-react";
-import { useRef } from "react";
+import { Instagram, Play } from "lucide-react";
+import { useRef, useState } from "react";
 import logo from "@/assets/logo.jpg";
 
 const VIDEO_EN = "https://pub-b1e334eefc6c4d63a2190bc287e9fda4.r2.dev/720-eng.MOV";
