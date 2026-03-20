@@ -55,29 +55,27 @@ const PricingSection = () => {
           })}
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-4 mt-8">
-          <div className="card-gradient rounded-xl border border-border/50 p-6">
-            <div className="flex items-center gap-3 mb-3">
-              <Video className="w-6 h-6 text-primary flex-shrink-0" />
-              <div>
-                <p className="text-foreground font-semibold">{t("GoPro Flight Video", "Video GoPro del Vuelo")}</p>
-                <p className="text-sm text-muted-foreground">{t("Optional add-on", "Complemento opcional")}</p>
+        <div className="grid sm:grid-cols-2 gap-3 mt-8">
+          <div className="card-gradient rounded-xl border border-border/50 px-5 py-4 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3 min-w-0">
+              <Video className="w-5 h-5 text-primary flex-shrink-0" />
+              <div className="min-w-0">
+                <p className="text-foreground font-semibold text-sm">{t("GoPro Flight Video", "Video GoPro del Vuelo")}</p>
+                <p className="text-xs text-muted-foreground">{t("Optional add-on", "Complemento opcional")}</p>
               </div>
             </div>
-            <p className="text-2xl font-bold text-foreground">$50.000 {t("COP", "")}</p>
-            {lang === "en" && <p className="text-sm text-muted-foreground">~$14 USD</p>}
+            <p className="text-lg font-bold text-foreground whitespace-nowrap">$50.000</p>
           </div>
 
-          <div className="card-gradient rounded-xl border border-border/50 p-6">
-            <div className="flex items-center gap-3 mb-3">
-              <Car className="w-6 h-6 text-primary flex-shrink-0" />
-              <div>
-                <p className="text-foreground font-semibold">{t("Round-trip Transportation", "Transporte ida y vuelta")}</p>
-                <p className="text-sm text-muted-foreground">{t("From anywhere in the metropolitan area", "Desde cualquier parte del área metropolitana")}</p>
+          <div className="card-gradient rounded-xl border border-border/50 px-5 py-4 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3 min-w-0">
+              <Car className="w-5 h-5 text-primary flex-shrink-0" />
+              <div className="min-w-0">
+                <p className="text-foreground font-semibold text-sm">{t("Round-trip Transportation", "Transporte ida y vuelta")}</p>
+                <p className="text-xs text-muted-foreground">{t("From the metropolitan area", "Desde el área metropolitana")}</p>
               </div>
             </div>
-            <p className="text-2xl font-bold text-foreground">$140.000 {t("COP", "")}</p>
-            {lang === "en" && <p className="text-sm text-muted-foreground">~$40 USD</p>}
+            <p className="text-lg font-bold text-foreground whitespace-nowrap">$140.000</p>
           </div>
         </div>
       </div>
