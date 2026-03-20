@@ -63,10 +63,19 @@ const Uber = () => {
                   setIsMuted(!isMuted);
                 }
               }}
-              className="absolute top-3 right-3 z-10 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-colors"
+              className={`absolute top-3 right-3 z-10 flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
+                isMuted
+                  ? "bg-primary text-primary-foreground animate-pulse shadow-lg shadow-primary/40"
+                  : "bg-black/60 hover:bg-black/80 text-white"
+              }`}
               aria-label={isMuted ? "Unmute" : "Mute"}
             >
               {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+              {isMuted && (
+                <span className="text-sm font-button font-semibold whitespace-nowrap">
+                  {t("🔊 Turn sound on", "🔊 Activa el sonido")}
+                </span>
+              )}
             </button>
           </div>
 
