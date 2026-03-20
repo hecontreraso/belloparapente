@@ -134,9 +134,8 @@ const SocialProofSection = () => {
     <section className="section-padding">
       <div className="max-w-6xl mx-auto">
         <h2 className="font-display text-4xl md:text-6xl text-center text-foreground mb-4">
-          {t("One of the Best Experiences", "Una de las Mejores Experiencias")}
-          <br />
-          <span className="text-gradient">{t("in Medellín", "en Medellín")}</span>
+          {t("", "Lo que dicen ")}
+          <span className="text-gradient">{t("What our customers say", "de nosotros")}</span>
         </h2>
 
         <div className="flex flex-col md:flex-row gap-6 items-start">

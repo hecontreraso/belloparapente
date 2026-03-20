@@ -8,7 +8,7 @@ const LocationSection = () => {
     <section className="section-padding">
       <div className="max-w-5xl mx-auto">
         <h2 className="font-display text-4xl md:text-6xl text-center text-foreground mb-4">
-          {t("Location - Paragliding Medellín", "Ubicación - Parapente Medellín")}
+          {t("Where to Find Us", "Donde estamos")}
         </h2>
 
         <div className="flex items-center justify-center gap-2 text-muted-foreground mb-8">
