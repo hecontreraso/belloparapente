@@ -10,7 +10,7 @@ const VIDEO_ES = "https://pub-b1e334eefc6c4d63a2190bc287e9fda4.r2.dev/720-esp.MO
 const Uber = () => {
   const { lang, setLang, t } = useLanguage();
   const videoRef = useRef<HTMLVideoElement>(null);
-  
+
 
   const videoUrl = lang === "en" ? VIDEO_EN : VIDEO_ES;
 
