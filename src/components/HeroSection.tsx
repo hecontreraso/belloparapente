@@ -24,9 +24,9 @@ const HeroSection = () => {
 
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 md:px-8">
         <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-none text-foreground mb-4">
-          {t("The Most Incredible Experience", "lA EXPERIENCIA MÁS INCREÍBLE")}
+          {t("THE ABSOLUTE BEST THING TO DO", "lA EXPERIENCIA MÁS INCREÍBLE")}
           <br />
-          <span className="text-gradient">{t("IN Medellín", "EN Medellín")}</span>
+          <span className="text-gradient">{t("IN MEDELLÍN", "EN Medellín")}</span>
         </h1>
 
         <p className="text-lg md:text-xl max-w-xl mb-8 text-secondary-foreground">
