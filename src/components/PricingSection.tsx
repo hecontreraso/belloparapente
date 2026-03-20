@@ -56,7 +56,7 @@ const PricingSection = () => {
         </div>
 
         <div className="space-y-4 mt-8">
-          <div className="card-gradient rounded-xl border border-border/50 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="card-gradient rounded-xl border border-border/50 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <Video className="w-6 h-6 text-primary" />
               <div>
@@ -64,7 +64,7 @@ const PricingSection = () => {
                 <p className="text-sm text-muted-foreground">{t("Optional add-on", "Complemento opcional")}</p>
               </div>
             </div>
-            <div className="text-right">
+            <div className="text-left sm:text-right">
               <span className="text-xl font-bold text-foreground">$50.000 {t("COP", "")}</span>
               {lang === "en" && <p className="text-sm text-muted-foreground">~$14 USD</p>}
             </div>
