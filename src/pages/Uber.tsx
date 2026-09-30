@@ -20,7 +20,7 @@ const Uber = () => {
       "¡Hola! Vi su anuncio y quiero reservar un vuelo en parapente sobre Medellín!"
     )
   );
-  const WHATSAPP_URL = `https://wa.me/573203293577?text=${whatsappMessage}`;
+  const WHATSAPP_URL = `https://wa.me/573108429037?text=${whatsappMessage}`;
 
   const handleWhatsAppClick = (e: React.MouseEvent) => {
     e.preventDefault();

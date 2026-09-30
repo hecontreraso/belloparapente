@@ -45,10 +45,10 @@ const Index = () => {
       longitude: "-75.5550",
     },
     priceRange: "$220.000 - $400.000 COP",
-    telephone: "+573203293577",
+    telephone: "+573108429037",
     sameAs: [
       "https://instagram.com/belloparapente",
-      "https://wa.me/573203293577",
+      "https://wa.me/573108429037",
     ],
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",

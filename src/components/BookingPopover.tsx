@@ -24,7 +24,7 @@ const BookingPopover = ({ whatsappMessage, className, label }: BookingPopoverPro
   );
 
   const finalMessage = whatsappMessage || defaultMessage;
-  const WHATSAPP_URL = `https://wa.me/573203293577?text=${finalMessage}`;
+  const WHATSAPP_URL = `https://wa.me/573108429037?text=${finalMessage}`;
 
   const handleWhatsApp = () => {
     trackWhatsAppConversion(WHATSAPP_URL);

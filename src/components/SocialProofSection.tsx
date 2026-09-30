@@ -145,13 +145,6 @@ const SocialProofSection = () => {
             rel="noopener noreferrer"
             className="flex-shrink-0 card-gradient p-6 rounded-xl border border-border/50 flex flex-col items-center gap-3 hover:border-primary/50 transition-colors w-full md:w-auto"
           >
-            <div className="w-16 h-16 rounded-full overflow-hidden bg-muted flex items-center justify-center">
-              <img
-                src="https://lh3.googleusercontent.com/gps-cs-s/AHVAwep6OELXxBnZrteAXhaRjM9sCisKqUwe2a0vVtMn0d2wXOm1GJICVcQNPMYKVVLxMs1HbK0YG5Z_kBYXf_Im3rY9PXPARfdve2taNsDD7FH-Phy5pJ9Yswu0_hqxttEAWGl9xC1NbUdYB71S=w92-h92-p-k-no"
-                alt="Bello Parapente"
-                className="w-full h-full object-cover"
-              />
-            </div>
             <span className="font-bold text-foreground text-lg">Bello Parapente</span>
             <div className="flex items-center gap-1">
               <span className="text-2xl font-bold text-primary">5.0</span>

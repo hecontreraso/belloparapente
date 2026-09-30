@@ -9,7 +9,7 @@ const SEO_CONTENT = {
   image: 'https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4c588455-6d57-4ca9-92ac-a7b40b22e8bc/id-preview-ce0f4048--ac08aee3-2a6b-4e12-81aa-9f988cdc9519.lovable.app-1773356703229.png',
   businessInfo: {
     name: 'Bello Parapente',
-    phone: '+573203293577',
+    phone: '+573108429037',
     location: 'San Félix, Bello, Antioquia, Colombia',
     hours: '8:00 AM - 6:00 PM',
     priceRange: '$220.000 - $440.000 COP'

@@ -59,7 +59,7 @@
   "name": "Bello Parapente",
   "address": { /* Dirección completa */ },
   "geo": { /* Coordenadas GPS */ },
-  "telephone": "+573203293577",
+  "telephone": "+573108429037",
   "openingHours": "8:00-18:00",
   "priceRange": "$220.000 - $400.000 COP",
   "offers": { /* Información de ofertas */ }
